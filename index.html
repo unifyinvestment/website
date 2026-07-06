@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unify Investment Group — Unifying Vision, Powering Global Innovation</title>
+<meta name="description" content="Unify Investment Group is a premier international principal investment and strategic advisory firm formed by prominent global family offices, with a proprietary capital pool exceeding US$700 million.">
+<style>
+:root{
+  --bg:#0A0E1A; --bg2:#0D1424; --bg3:#101A2E;
+  --txt:#F5F6F8; --sub:#9AA3B2; --mut:#6B7484;
+  --gold:#C8A45C; --gold-dim:#a3854d;
+  --hair:rgba(255,255,255,.08);
+  --ff:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text",Inter,"Helvetica Neue","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:var(--ff);font-size:24px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* ---------- animated background ---------- */
+.bgfx{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.55;will-change:transform}
+.blob.b1{width:72vw;height:72vw;left:-22vw;top:-18vw;background:radial-gradient(circle at 35% 35%,rgba(46,84,150,.55),rgba(46,84,150,0) 62%);animation:drift1 46s ease-in-out infinite alternate}
+.blob.b2{width:60vw;height:60vw;right:-20vw;top:26%;background:radial-gradient(circle at 60% 40%,rgba(200,164,92,.34),rgba(200,164,92,0) 65%);animation:drift2 58s ease-in-out infinite alternate}
+.blob.b3{width:66vw;height:66vw;left:8vw;bottom:-30vw;background:radial-gradient(circle at 50% 50%,rgba(90,50,140,.30),rgba(90,50,140,0) 62%);animation:drift3 52s ease-in-out infinite alternate}
+@keyframes drift1{from{transform:translate(0,0) scale(1)}to{transform:translate(14vw,10vh) scale(1.18)}}
+@keyframes drift2{from{transform:translate(0,0) scale(1.1) rotate(0deg)}to{transform:translate(-12vw,-8vh) scale(.92) rotate(40deg)}}
+@keyframes drift3{from{transform:translate(0,0) scale(1)}to{transform:translate(10vw,-12vh) scale(1.22)}}
+.bggrid{position:absolute;inset:-2px;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:72px 72px;mask-image:radial-gradient(900px 600px at 50% 20%,rgba(0,0,0,.9),transparent 75%);-webkit-mask-image:radial-gradient(900px 600px at 50% 20%,rgba(0,0,0,.9),transparent 75%)}
+.globe{position:absolute;pointer-events:none;color:var(--gold);z-index:0}
+.globe svg{width:100%;height:100%}
+.globe.g-hero{width:100vmin;height:100vmin;left:50%;top:70%;transform:translate(-50%,-50%);opacity:.12}
+#home>.globe{z-index:0}
+.globe.g-end{width:64vmin;height:64vmin;left:-16vmin;bottom:-8vmin;opacity:.10}
+#home>:not(.globe):not(.hero-rings){position:relative;z-index:1}
+#contact .wrap{position:relative;z-index:1}
+#home>.globe,#home>.hero-rings{position:absolute;z-index:0}
+#contact{overflow:hidden}#home{overflow:hidden}
+@media (prefers-reduced-motion:reduce){.blob{animation:none}.globe g{animation:none!important}}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+::selection{background:rgba(200,164,92,.35)}
+
+/* ---------- nav ---------- */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;
+  padding:0 clamp(20px,4vw,56px);height:64px;transition:background .45s ease,border-color .45s ease;border-bottom:1px solid transparent}
+nav.solid{background:rgba(10,14,26,.72);backdrop-filter:blur(22px) saturate(1.4);-webkit-backdrop-filter:blur(22px) saturate(1.4);border-bottom-color:var(--hair)}
+.nav-brand{font-size:15.5px;font-weight:700;letter-spacing:.16em;white-space:nowrap;margin-right:22px}
+.nav-brand span{color:var(--gold);font-weight:300}
+.nav-links{display:flex;gap:clamp(8px,1.3vw,20px);align-items:center;list-style:none}
+.nav-links a{font-size:15px;font-weight:600;color:var(--sub);letter-spacing:.02em;padding:6px 2px;border-bottom:1px solid transparent;transition:color .25s,border-color .25s;white-space:nowrap}
+.nav-links a:hover{color:var(--txt)}
+.nav-links a.active{color:var(--txt);border-bottom-color:var(--gold)}
+.lang-seg{display:flex;border-radius:100px;overflow:hidden;background:linear-gradient(180deg,#1a2338,#0c1220);box-shadow:inset 0 1px 0 rgba(255,255,255,.14),inset 0 -1px 0 rgba(0,0,0,.5),0 4px 10px rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.12)}
+.lang-seg button{font-family:var(--ff);font-size:12.5px;font-weight:650;letter-spacing:.02em;padding:5px 11px;background:transparent;color:var(--sub);border:none;cursor:pointer;transition:background .3s,color .3s,box-shadow .3s;white-space:nowrap;border-radius:100px}
+.lang-seg button.active{background:linear-gradient(180deg,#EBCB85,#B18A45);color:#0A0E1A;box-shadow:inset 0 1px 0 rgba(255,255,255,.55),inset 0 -1px 2px rgba(0,0,0,.35),0 2px 6px rgba(0,0,0,.5)}
+.lang-seg button:not(.active):hover{color:var(--txt)}
+.lang-seg .ls{display:none}
+.nav-burger{display:none;background:none;border:none;color:var(--txt);font-size:22px;cursor:pointer}
+@media(max-width:1280px){
+  .nav-links{position:fixed;top:64px;right:0;flex-direction:column;background:rgba(10,14,26,.97);backdrop-filter:blur(20px);
+    width:min(78vw,320px);padding:28px;gap:18px;transform:translateX(100%);transition:transform .35s ease;border-left:1px solid var(--hair);height:calc(100vh - 64px);align-items:flex-start}
+  .nav-links.open{transform:translateX(0)}
+  .nav-burger{display:block}
+}
+
+/* ---------- shared ---------- */
+section{padding:clamp(56px,7vh,96px) clamp(22px,6vw,72px);position:relative}
+.wrap{max-width:1180px;margin:0 auto}
+.eyebrow{font-size:17.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;font-weight:650}
+h1{font-size:clamp(54px,8vw,112px);font-weight:350;letter-spacing:-.015em;line-height:1.08}
+h2{font-size:clamp(44px,6vw,80px);font-weight:350;letter-spacing:-.012em;line-height:1.12;margin-bottom:24px}
+h3{font-size:clamp(26px,2.8vw,33px);font-weight:650;letter-spacing:-.005em}
+.lead{font-size:clamp(23px,2.3vw,28px);color:var(--sub);max-width:64ch;font-weight:350}
+.hairline{border:none;border-top:1px solid var(--hair)}
+.alt{background:var(--bg2)}
+
+/* reveal variants */
+.rv,.rv-l,.rv-r,.rv-s{opacity:0;transition:opacity .85s cubic-bezier(.22,1,.36,1),transform .85s cubic-bezier(.22,1,.36,1),filter .85s cubic-bezier(.22,1,.36,1)}
+.rv{transform:translateY(34px)}
+.rv-l{transform:translateY(34px)}
+.rv-r{transform:translateY(34px)}
+.rv-s{transform:scale(.94) translateY(20px);filter:blur(6px)}
+.rv.in,.rv-l.in,.rv-r.in,.rv-s.in{opacity:1;transform:none;filter:none}
+
+/* looping icon animations */
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.12);opacity:.75}}
+@keyframes spinSlow{to{transform:rotate(360deg)}}
+@keyframes sweep{to{transform:rotate(360deg)}}
+@keyframes ringGrow{0%{transform:scale(.6);opacity:.8}100%{transform:scale(1.5);opacity:0}}
+@keyframes barsUp{0%,100%{transform:scaleY(.45)}50%{transform:scaleY(1)}}
+@keyframes dashDraw{to{stroke-dashoffset:0}}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+@keyframes blinkDot{0%,100%{opacity:.25}50%{opacity:1}}
+@keyframes coreGlow{0%,100%{opacity:.25;transform:scale(.8)}50%{opacity:1;transform:scale(1.25)}}
+.icon-wrap{width:64px;height:64px;margin-bottom:22px;position:relative;color:var(--gold)}
+.icon-wrap svg{width:100%;height:100%;overflow:visible}
+@media (prefers-reduced-motion:reduce){.icon-wrap *{animation:none!important}}
+
+/* ---------- hero ---------- */
+#home{min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
+  background:radial-gradient(1200px 600px at 50% -10%,rgba(200,164,92,.10),transparent 60%),
+             radial-gradient(900px 500px at 85% 110%,rgba(38,64,120,.25),transparent 60%),var(--bg);
+  padding-top:120px}
+#home .eyebrow{margin-bottom:30px}
+#home h1{max-width:14ch;margin:0 auto}
+.hero-sub{font-size:clamp(25px,2.9vw,35px);color:var(--gold);font-weight:550;letter-spacing:.06em;margin-top:28px;position:relative}
+.hero-glow{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(64vmin,640px);height:150%;background:radial-gradient(ellipse at 50% 50%,rgba(212,175,102,.45),rgba(212,175,102,.14) 45%,transparent 72%);filter:blur(28px);animation:glowGrow 4.2s ease-in-out infinite alternate;pointer-events:none;z-index:0}
+.hero-sub span{position:relative;z-index:1}
+@keyframes glowGrow{from{transform:translate(-50%,-50%) scale(.6);opacity:.5}to{transform:translate(-50%,-50%) scale(1.25);opacity:1}}
+.hero-copy{margin:32px auto 0;max-width:64ch;color:var(--sub);font-size:clamp(22px,2.2vw,26px);font-weight:350}
+.hero-stats{display:flex;gap:clamp(26px,5vw,80px);margin-top:52px;flex-wrap:wrap;justify-content:center}
+.stat .num{font-size:clamp(48px,5.5vw,72px);font-weight:550;letter-spacing:-.01em}
+.stat .num em{font-style:normal;color:var(--gold)}
+.stat .sic{width:44px;height:44px;margin:0 auto 12px;color:var(--gold)}
+.stat .sic svg{width:100%;height:100%;overflow:visible}
+.stat .lbl{font-size:17.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--sub);margin-top:8px}
+.hero-rings{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.hero-rings i{position:absolute;left:50%;top:42%;border:1px solid rgba(200,164,92,.14);border-radius:50%;transform:translate(-50%,-50%)}
+.hero-rings i:nth-child(1){width:56vmin;height:56vmin;animation:pulse 7s ease-in-out infinite}
+.hero-rings i:nth-child(2){width:82vmin;height:82vmin;border-color:rgba(255,255,255,.06);animation:pulse 9s 1.2s ease-in-out infinite}
+.hero-rings i:nth-child(3){width:110vmin;height:110vmin;border-color:rgba(255,255,255,.045);animation:pulse 11s 2.2s ease-in-out infinite}
+.scroll-cue{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);color:var(--mut);font-size:20px;animation:cue 2.4s ease-in-out infinite}
+@keyframes cue{0%,100%{transform:translate(-50%,0);opacity:.5}50%{transform:translate(-50%,10px);opacity:1}}
+
+/* ---------- strengths ---------- */
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:42px;max-width:1320px;margin-left:auto;margin-right:auto}
+.cell{background:var(--bg);padding:48px 36px;border:1px solid var(--hair);border-radius:12px;transition:background .4s,transform .4s cubic-bezier(.22,1,.36,1),border-color .4s}
+.cell:hover{border-color:rgba(200,164,92,.4)}
+.cell:hover{background:var(--bg3);transform:translateY(-6px)}
+.cell .no{font-size:clamp(29px,2.5vw,39px);font-weight:300;color:var(--gold);letter-spacing:.06em;margin-bottom:10px;line-height:1;opacity:.95}
+.cell h3{margin-bottom:16px;font-weight:450}
+.cell p{font-size:21px;color:var(--sub);font-weight:350}
+
+/* ---------- about ---------- */
+.about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(40px,6vw,90px);align-items:start;margin-top:24px}
+@media(max-width:900px){.about-grid{grid-template-columns:1fr}}
+.values{display:grid;gap:0;margin-top:46px;border-top:1px solid var(--hair)}
+.value{display:grid;grid-template-columns:216px 1fr;gap:24px;padding:26px 0;border-bottom:1px solid var(--hair)}
+.vic{display:inline-block;width:32px;height:32px;margin-right:12px;vertical-align:-8px;color:var(--gold)}
+.vic svg{width:100%;height:100%;overflow:visible}
+@media(max-width:600px){.value{grid-template-columns:1fr;gap:6px}}
+.value b{color:var(--gold);font-weight:700;letter-spacing:.1em;font-size:21px}
+.value p{color:var(--sub);font-size:21.5px;font-weight:350}
+
+/* CEO */
+.ceo{display:grid;grid-template-columns:340px 1fr;gap:clamp(36px,5vw,72px);align-items:start;margin-top:48px}
+@media(max-width:900px){.ceo{grid-template-columns:1fr}}
+.ceo-photo{border-radius:6px;overflow:hidden;position:relative}
+.ceo-photo img{filter:saturate(.9) contrast(1.02)}
+.ceo-photo::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 1px rgba(255,255,255,.10);border-radius:6px}
+.ceo-name{margin-top:18px;font-size:21.5px}
+.ceo-name b{font-weight:600;letter-spacing:.02em}
+.ceo-name span{display:block;color:var(--mut);font-size:18.5px;margin-top:2px}
+.ceo blockquote{font-size:clamp(29px,3.5vw,41px);font-weight:600;line-height:1.42;letter-spacing:-.005em}
+.ceo blockquote em{font-style:normal;color:var(--gold)}
+.ceo .body{margin-top:26px;color:var(--sub);font-size:23px;font-weight:350}
+details.letter{margin-top:26px;border-top:1px solid var(--hair)}
+details.letter summary{cursor:pointer;list-style:none;padding:20px 0;color:var(--gold);font-size:19px;font-weight:650;letter-spacing:.12em;text-transform:uppercase;display:flex;align-items:center;gap:10px}
+details.letter summary::after{content:"+";font-size:21px;transition:transform .3s}
+details.letter[open] summary::after{transform:rotate(45deg)}
+details.letter .full p{color:var(--sub);font-size:22px;margin-bottom:18px;font-weight:350}
+details.letter .full .sig{color:var(--txt);font-weight:500;margin-top:24px}
+
+/* ---------- services ---------- */
+.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,4vw,60px);margin-top:42px}
+@media(max-width:860px){.svc-grid{grid-template-columns:1fr}}
+.svc{border:1px solid var(--hair);border-radius:8px;padding:clamp(30px,3.4vw,50px);background:linear-gradient(180deg,rgba(255,255,255,.02),transparent)}
+.svc h3{margin-bottom:8px;font-weight:700;font-size:clamp(29px,3vw,36px)}
+.svc .tag{font-size:17px;font-weight:650;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;display:block}
+.svc ul{list-style:none;margin-top:20px}
+.svc li{padding:18px 0;border-top:1px solid var(--hair);display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start}
+.sli{width:32px;height:32px;color:var(--gold);margin-top:4px}
+.sli svg{width:100%;height:100%;overflow:visible}
+.svc li b{display:block;font-weight:650;font-size:23px;margin-bottom:5px}
+.svc li span{color:var(--sub);font-size:20.5px;font-weight:350}
+.svc{position:relative;overflow:hidden}
+.svc::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(200,164,92,.7),transparent);background-size:200% 100%;animation:shimmer 5.5s linear infinite}
+.disclaim{margin-top:40px;color:var(--mut);font-size:18.5px;max-width:88ch;font-weight:350}
+
+/* ---------- focus ---------- */
+.focus-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:42px}
+.focus{background:var(--bg2);padding:42px 30px;min-height:260px;display:flex;flex-direction:column;justify-content:flex-start;border:1px solid var(--hair);border-radius:12px;transition:background .4s,transform .4s cubic-bezier(.22,1,.36,1),border-color .4s}
+.focus:hover{border-color:rgba(200,164,92,.4)}
+.focus:hover{background:var(--bg3);transform:translateY(-6px)}
+.focus h3{font-size:25px;font-weight:700;margin-bottom:12px;min-height:2.5em;display:flex;align-items:flex-start}
+.focus p{font-size:19px;color:var(--sub);font-weight:350}
+.ticket{margin-top:48px}
+.ticket .bar{height:2px;background:linear-gradient(90deg,rgba(200,164,92,.25),var(--gold));position:relative;margin:26px 0 12px}
+.ticket .bar::before,.ticket .bar::after{content:"";position:absolute;top:50%;width:9px;height:9px;border-radius:50%;background:var(--gold);transform:translateY(-50%)}
+.ticket .bar::after{right:0}
+.ticket .ends{display:flex;justify-content:space-between;color:var(--sub);font-size:20px}
+.ticket .ends b{color:var(--txt);font-weight:700;font-size:25px;display:block}
+.ticket .bar{overflow:visible;background:linear-gradient(90deg,rgba(200,164,92,.25),var(--gold));background-size:200% 100%;animation:shimmer 4s linear infinite reverse}
+
+/* ---------- tombstones ---------- */
+.tomb-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:14px;margin-top:42px}
+.tomb{border:1px solid var(--hair);border-radius:8px;padding:26px 20px 20px;display:flex;flex-direction:column;align-items:center;text-align:center;
+  background:rgba(255,255,255,.015);transition:transform .35s cubic-bezier(.22,1,.36,1),border-color .35s,background .35s;min-height:196px}
+.tomb:hover{transform:translateY(-4px);border-color:rgba(200,164,92,.45);background:rgba(255,255,255,.03)}
+.tomb .lg{height:62px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;width:100%}
+.tomb .lg img.big{max-height:60px}
+.tomb .lg img{max-height:52px;max-width:82%;object-fit:contain;filter:brightness(0) invert(.93);opacity:.9;transition:filter .4s,opacity .4s;animation:floaty 5.5s ease-in-out infinite}
+.tomb .lg img.raw{filter:none;opacity:1}
+.tomb:hover .lg img{opacity:1}
+.tomb h4{font-size:20.5px;font-weight:650;letter-spacing:.01em;line-height:1.35}
+.tomb .note{font-size:17.5px;color:var(--mut);margin-top:6px;font-weight:350;line-height:1.45}
+.tomb .pill{margin-top:auto;padding-top:16px;font-size:15px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-dim)}
+
+/* ---------- news ---------- */
+.news-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:18px;margin-top:42px}
+.news-card{border:1px solid var(--hair);border-radius:10px;overflow:hidden;background:rgba(255,255,255,.015);display:flex;flex-direction:column;
+  transition:transform .18s ease-out,border-color .18s ease-out,box-shadow .22s ease-out}
+.news-card:hover{transform:translateY(-9px) scale(1.02);border-color:rgba(200,164,92,.65);box-shadow:0 22px 48px rgba(0,0,0,.45)}
+.news-card h4{transition:color .3s}
+.news-card:hover h4{color:#EBCB85}
+.news-card .arrow::after{content:"";display:inline-block;width:0;transition:width .3s}
+.news-card:hover .arrow{letter-spacing:.16em}
+.news-card .im{aspect-ratio:16/9;overflow:hidden;background:var(--bg3);display:flex;align-items:center;justify-content:center}
+.news-card .im img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.22,1,.36,1)}
+.news-card:hover .im img{transform:scale(1.08) rotate(.5deg)}
+.news-card .im.contain img{object-fit:contain;padding:26px;background:#fff}
+.news-card .im.textcard{background:linear-gradient(135deg,#12203c,#0D1424);flex-direction:column;gap:8px}
+.news-card .im.textcard .q{font-size:44px;color:var(--gold);font-weight:200;line-height:1}
+.news-card .im.textcard .src{font-size:13px;letter-spacing:.3em;color:var(--sub)}
+.news-card .tx{padding:20px 22px 24px;display:flex;flex-direction:column;flex:1}
+.news-card .meta{font-size:15.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:12px}
+.news-card h4{font-size:21.5px;font-weight:650;line-height:1.45;letter-spacing:.005em}
+.news-card .desc{font-size:17px;color:var(--sub);margin-top:10px;font-weight:350;line-height:1.55}
+.news-card .arrow{margin-top:auto;padding-top:18px;font-size:18px;font-weight:600;color:var(--mut);letter-spacing:.08em;transition:color .3s}
+.news-card:hover .arrow{color:var(--gold)}
+
+/* ---------- structure ---------- */
+.struct{display:grid;grid-template-columns:1fr auto 1fr;gap:clamp(20px,3vw,40px);align-items:stretch;margin-top:44px}
+@media(max-width:860px){.struct{grid-template-columns:1fr}.struct .link{display:none}}
+.entity{border:1px solid var(--hair);border-radius:10px;padding:clamp(30px,3.2vw,46px);background:linear-gradient(180deg,rgba(255,255,255,.02),transparent)}
+.entity .where{font-size:17px;font-weight:650;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.entity h3{font-weight:700;margin-bottom:6px;font-size:clamp(28px,2.8vw,34px)}
+.entity .zh-name{color:var(--mut);font-size:20px;margin-bottom:20px}
+.entity .pos{color:var(--sub);font-size:21.5px;margin-bottom:22px;font-weight:350}
+.entity ul{list-style:none}
+.entity li{padding:14px 0;border-top:1px solid var(--hair);color:var(--sub);font-size:20.5px;font-weight:350;display:flex;align-items:baseline;gap:14px}
+.entity li::before{content:"";flex:0 0 11px;width:11px;height:11px;background:linear-gradient(135deg,#EBCB85,#9C7530);transform:rotate(45deg) translateY(-1px);box-shadow:0 0 8px rgba(200,164,92,.55);border-radius:2px}
+.entity .icon-wrap{width:84px;height:84px;margin-bottom:18px}
+.struct .link{display:flex;justify-content:center;align-items:center;color:var(--gold);width:150px;justify-self:center;margin:0 auto}
+.struct .link svg{width:150px;height:110px;overflow:visible}
+.struct .link .flow{stroke-dasharray:6 8;animation:dashMove 1.6s linear infinite}
+
+@keyframes dashMove{to{stroke-dashoffset:-28}}
+
+/* ---------- external links ---------- */
+.ext-link{border-bottom:1px solid transparent;transition:color .25s,border-color .25s}
+.ext-link:hover{color:var(--gold);border-bottom-color:var(--gold)}
+
+/* ---------- key members ---------- */
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:clamp(20px,2.6vw,36px);margin-top:48px}
+.member{border:1px solid var(--hair);border-radius:10px;overflow:hidden;background:linear-gradient(180deg,rgba(255,255,255,.02),transparent);display:flex;flex-direction:column}
+.member .ph{aspect-ratio:3/4;overflow:hidden;background:var(--bg3)}
+.member .ph img{width:100%;height:100%;object-fit:cover;filter:saturate(.9) contrast(1.02);transition:transform .5s cubic-bezier(.22,1,.36,1)}
+.member:hover .ph img{transform:scale(1.045)}
+.member .tx{padding:24px 26px 30px;display:flex;flex-direction:column;flex:1}
+.member h3{font-size:26px;font-weight:700;margin-bottom:8px}
+.member .role{color:var(--gold);font-size:19.5px;font-weight:600;line-height:1.5}
+.member .org{color:var(--sub);font-size:19.5px;margin-top:8px;font-weight:350;line-height:1.5}
+.member .cred{color:var(--mut);font-size:17px;margin-top:12px;padding-top:12px;border-top:1px solid var(--hair);font-weight:350;line-height:1.6}
+@media(max-width:640px){.team-grid{grid-template-columns:1fr;max-width:340px;margin-left:auto;margin-right:auto}}
+
+/* ---------- contact ---------- */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,4vw,54px);margin-top:42px}
+@media(max-width:800px){.contact-grid{grid-template-columns:1fr}}
+.office{border-top:2px solid var(--gold);padding-top:26px;position:relative;transition:transform .4s cubic-bezier(.22,1,.36,1)}
+.office:hover{transform:translateY(-8px)}
+.office::before{content:"";position:absolute;top:-2px;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#EBCB85,transparent);background-size:200% 100%;animation:shimmer 3.5s linear infinite reverse}
+.oic{width:46px;height:46px;color:var(--gold);margin-bottom:16px}
+.oic svg{width:100%;height:100%;overflow:visible}
+@keyframes ctaPulse{0%{box-shadow:0 0 0 0 rgba(200,164,92,.45)}70%{box-shadow:0 0 0 22px rgba(200,164,92,0)}100%{box-shadow:0 0 0 0 rgba(200,164,92,0)}}
+.office h3{font-weight:700;font-size:27.5px;margin-bottom:5px}
+.office .sub2{color:var(--mut);font-size:19px;margin-bottom:18px}
+.office p{color:var(--sub);font-size:21px;font-weight:350}
+.contact-cta{margin-top:52px;text-align:center}
+.contact-cta a{display:inline-block;border:1.5px solid var(--gold);color:var(--gold);border-radius:100px;padding:20px 56px;font-size:20px;font-weight:650;letter-spacing:.14em;text-transform:uppercase;transition:background .3s,color .3s,transform .3s}
+.contact-cta a:hover{transform:translateY(-3px);background:var(--gold);color:#0A0E1A}
+.contact-cta a{animation:ctaPulse 3s ease-out infinite}
+.contact-cta a:hover{background:var(--gold);color:#0A0E1A}
+
+/* ---------- footer ---------- */
+footer{padding:60px clamp(22px,6vw,72px) 46px;border-top:1px solid var(--hair);background:var(--bg2)}
+footer .wrap{display:flex;flex-direction:column;gap:26px}
+.foot-brand{font-size:17px;font-weight:700;letter-spacing:.22em}
+.foot-brand span{color:var(--gold);font-weight:300}
+footer .legal{color:var(--mut);font-size:18px;max-width:110ch;font-weight:350;font-style:italic}
+footer .copy{color:var(--mut);font-size:17px}
+
+/* ---------- mobile polish ---------- */
+@media(max-width:640px){
+  body{font-size:20px}
+  h1{font-size:clamp(38px,11vw,54px)}
+  h2{font-size:clamp(30px,9vw,44px)}
+  .lead{font-size:19px}
+  .hero-copy{font-size:18px}
+  section{padding:48px 20px}
+  .cell{padding:32px 24px}
+  .stat .num{font-size:40px}
+  .hero-stats{gap:22px;margin-top:40px}
+  .tomb-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .news-grid{grid-template-columns:1fr}
+  .ceo{grid-template-columns:1fr}
+  .ceo-photo{max-width:300px}
+  .globe.g-hero{opacity:.08}
+  .value{grid-template-columns:1fr;gap:8px}
+  nav{padding:0 14px}
+  .nav-brand{font-size:13px;letter-spacing:.1em}
+  nav>div{gap:8px}
+  .lang-seg button{padding:5px 12px;font-size:13px;letter-spacing:.02em}
+  .lang-seg .lf{display:none}
+  .lang-seg .ls{display:inline}
+}
+
+/* ---------- unified hover language ---------- */
+.cell,.svc,.focus,.tomb,.entity,.office,.stat,.value{transition:transform .18s ease-out,border-color .18s ease-out,box-shadow .22s ease-out,background .18s ease-out;will-change:transform}
+.cell:hover,.svc:hover,.focus:hover,.tomb:hover,.entity:hover{transform:translateY(-7px);border-color:rgba(200,164,92,.55);box-shadow:0 20px 44px rgba(0,0,0,.42);background:var(--bg3)}
+.office:hover{transform:translateY(-7px);box-shadow:0 20px 44px rgba(0,0,0,.42)}
+.stat:hover{transform:translateY(-5px)}
+.stat:hover .num em,.stat:hover .num{text-shadow:0 0 24px rgba(200,164,92,.35)}
+.value:hover{background:rgba(255,255,255,.025)}
+.cell:hover .icon-wrap,.focus:hover .icon-wrap,.svc:hover .icon-wrap{transform:scale(1.08)}
+.icon-wrap{transition:transform .2s ease-out}
+.tomb:hover .lg img{opacity:1;transform:scale(1.06)}
+.tomb .lg img{transition:opacity .18s ease-out,transform .18s ease-out}
+</style>
+</head>
+<body>
+<div class="bgfx" id="bgfx">
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+  <div class="bggrid"></div>
+</div>
+
+<nav id="nav">
+  <a class="nav-brand" href="#home">UNIFY <span data-i="brand2">INVESTMENT GROUP</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home" data-i="n_home">Home</a></li>
+    <li><a href="#about" data-i="n_about">About Us</a></li>
+    <li><a href="#services" data-i="n_services">Our Services</a></li>
+    <li><a href="#focus" data-i="n_focus">Investment Focus</a></li>
+    <li><a href="#tombstones" data-i="n_tomb">Selected Tombstones</a></li>
+    <li><a href="#news" data-i="n_news">News &amp; Press</a></li>
+    <li><a href="#structure" data-i="n_struct">Group Structure</a></li>
+    <li><a href="#contact" data-i="n_contact">Contact Us</a></li>
+  </ul>
+  <div style="display:flex;gap:14px;align-items:center">
+    <div class="lang-seg" id="langSeg" role="group" aria-label="Language"><button data-lang="en" class="active"><span class="lf">English</span><span class="ls">EN</span></button><button data-lang="zh"><span class="lf">繁體中文</span><span class="ls">中</span></button></div>
+    <button class="nav-burger" id="burger" aria-label="menu">☰</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-rings" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="globe g-hero" aria-hidden="true"><svg viewBox="0 0 600 600" fill="none" stroke="currentColor" stroke-width="1.1"><g style="animation:spinSlow 140s linear infinite;transform-origin:300px 300px"><circle cx="300" cy="300" r="270" stroke-width="1.6"/><ellipse cx="300" cy="300" rx="45" ry="270" opacity=".55"/><ellipse cx="300" cy="300" rx="110" ry="270" opacity=".55"/><ellipse cx="300" cy="300" rx="175" ry="270" opacity=".55"/><ellipse cx="300" cy="300" rx="235" ry="270" opacity=".55"/><path d="M 165 66 A 135 38 0 0 0 435 66" opacity=".45"/><path d="M 79 145 A 221 62 0 0 0 521 145" opacity=".45"/><path d="M 30 300 A 270 76 0 0 0 570 300" opacity=".45"/><path d="M 79 455 A 221 62 0 0 0 521 455" opacity=".45"/><path d="M 165 534 A 135 38 0 0 0 435 534" opacity=".45"/><circle cx="150" cy="180" r="4" fill="currentColor" stroke="none" style="animation:blinkDot 2.0s infinite"/><circle cx="430" cy="150" r="4" fill="currentColor" stroke="none" style="animation:blinkDot 2.4s infinite"/><circle cx="500" cy="330" r="4" fill="currentColor" stroke="none" style="animation:blinkDot 2.8s infinite"/><circle cx="210" cy="470" r="4" fill="currentColor" stroke="none" style="animation:blinkDot 3.2s infinite"/><circle cx="370" cy="420" r="4" fill="currentColor" stroke="none" style="animation:blinkDot 3.6s infinite"/><circle cx="120" cy="330" r="4" fill="currentColor" stroke="none" style="animation:blinkDot 4.0s infinite"/><path d="M 150 180 Q 290 95 430 150" opacity=".5" stroke-dasharray="3 6"/><path d="M 430 150 Q 465 170 500 330" opacity=".5" stroke-dasharray="3 6"/><path d="M 500 330 Q 435 305 370 420" opacity=".5" stroke-dasharray="3 6"/><path d="M 210 470 Q 290 375 370 420" opacity=".5" stroke-dasharray="3 6"/><path d="M 120 330 Q 165 330 210 470" opacity=".5" stroke-dasharray="3 6"/><path d="M 120 330 Q 135 185 150 180" opacity=".5" stroke-dasharray="3 6"/><path d="M 430 150 Q 400 215 370 420" opacity=".5" stroke-dasharray="3 6"/></g></svg></div>
+  <div class="eyebrow rv" data-i="h_eyebrow">Principal Investment · Strategic Advisory</div>
+  <h1 class="rv" data-i="h_title">Unifying Vision,<br>Powering Global Innovation.</h1>
+  <div class="hero-sub rv"><div class="hero-glow" aria-hidden="true"></div><span data-i="h_sub">Your Growth, Our Passion.</span></div>
+  <p class="hero-copy rv" data-i="h_copy">Unify Investment Group is a premier international investment and strategic advisory firm formed by several prominent global family offices, with a proprietary capital pool exceeding US$700 million. We deploy proprietary principal capital globally and provide high-level capital markets advisory to partners with the potential to reshape industries.</p>
+  <div class="hero-stats rv">
+    <div class="stat">
+      <div class="sic" aria-hidden="true"><svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2">
+        <ellipse cx="22" cy="12" rx="13" ry="5"/><path d="M9 12v9c0 2.8 5.8 5 13 5s13-2.2 13-5v-9"/><path d="M9 21v9c0 2.8 5.8 5 13 5s13-2.2 13-5v-9"/>
+        <circle cx="22" cy="12" r="1.6" fill="currentColor" stroke="none" style="animation:blinkDot 2.4s infinite"/>
+      </svg></div>
+      <div class="num"><em>$</em><span class="cnt" data-to="700">0</span><em>M+</em></div><div class="lbl" data-i="s1">Capital Pool</div></div>
+    <div class="stat">
+      <div class="sic" aria-hidden="true"><svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="22" cy="22" r="17"/><path d="M22 5v6M22 33v6M5 22h6M33 22h6" opacity=".6"/>
+        <path d="M28 16 L24.5 24.5 L16 28 L19.5 19.5 Z" style="animation:spinSlow 8s linear infinite;transform-origin:22px 22px"/>
+      </svg></div>
+      <div class="num"><span class="cnt" data-to="5">0</span></div><div class="lbl" data-i="s2">Frontier Sectors</div></div>
+    <div class="stat">
+      <div class="sic" aria-hidden="true"><svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="22" cy="16" r="9"/><path d="M17 23 L14 38 L22 33 L30 38 L27 23" style="animation:floaty 3.4s ease-in-out infinite"/>
+        <path d="M18.5 15.5 L21 18 L26 13" style="animation:blinkDot 2.8s infinite"/>
+      </svg></div>
+      <div class="num"><span class="cnt" data-to="20">0</span><em>+</em></div><div class="lbl" data-i="s3">Selected Tombstones</div></div>
+    <div class="stat">
+      <div class="sic" aria-hidden="true"><svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M22 4 L37 10 V21 C37 30 30 37 22 40 C14 37 7 30 7 21 V10 Z"/>
+        <path d="M16 21 L20.5 25.5 L29 16" style="animation:blinkDot 2.2s infinite"/>
+      </svg></div>
+      <div class="num">100<em>%</em></div><div class="lbl" data-i="s4">Proprietary Capital</div></div>
+  </div>
+  <a class="scroll-cue" href="#strengths">↓</a>
+</section>
+
+<!-- STRENGTHS -->
+<section id="strengths" class="alt">
+  <div class="wrap" style="max-width:1320px">
+    <div class="eyebrow rv" data-i="st_eyebrow">Core Strengths</div>
+    <h2 class="rv-s" data-i="st_title">Four reasons the world's<br>builders choose Unify.</h2>
+    <div class="grid4">
+      <div class="cell rv"><div class="no">01</div>
+        <div class="icon-wrap" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="32" cy="32" r="26" opacity=".18" style="animation:ringGrow 3.6s ease-out infinite;transform-origin:32px 32px"/>
+          <path d="M14 26 L32 14 L50 26 Z"/><line x1="14" y1="50" x2="50" y2="50"/>
+          <line x1="20" y1="32" x2="20" y2="44"/><line x1="32" y1="32" x2="32" y2="44"/><line x1="44" y1="32" x2="44" y2="44"/>
+        </svg></div><h3 data-i="st1_t">Strong Capital, Proprietary Focus</h3><p data-i="st1_p">Backed by over US$500 million in family office capital, we focus 100% on principal investment and strategic guidance. We manage no third-party or public funds — ensuring exceptional decision-making efficiency and absolute confidentiality.</p></div>
+      <div class="cell rv"><div class="no">02</div>
+        <div class="icon-wrap" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="32" cy="32" r="24"/><circle cx="32" cy="32" r="15" opacity=".4"/>
+          <line x1="32" y1="32" x2="32" y2="9" style="animation:sweep 4s linear infinite;transform-origin:32px 32px"/>
+          <circle cx="44" cy="24" r="2.4" fill="currentColor" stroke="none" style="animation:blinkDot 2.2s infinite"/>
+          <circle cx="22" cy="42" r="2.4" fill="currentColor" stroke="none" style="animation:blinkDot 3.1s .6s infinite"/>
+        </svg></div><h3 data-i="st2_t">Data Intelligence, Precise Vision</h3><p data-i="st2_p">Empowered by one of the world's top four patent databases and advanced AI, we execute rigorous technical feasibility, market intelligence and competitor analyses — anticipating trends and pinpointing ideal M&amp;A targets ahead of the market.</p></div>
+      <div class="cell rv"><div class="no">03</div>
+        <div class="icon-wrap" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="12" y="34" width="8" height="18" style="animation:barsUp 2.8s ease-in-out infinite;transform-origin:16px 52px"/>
+          <rect x="27" y="24" width="8" height="28" style="animation:barsUp 2.8s .4s ease-in-out infinite;transform-origin:31px 52px"/>
+          <rect x="42" y="14" width="8" height="38" style="animation:barsUp 2.8s .8s ease-in-out infinite;transform-origin:46px 52px"/>
+          <path d="M12 20 Q30 12 46 8" opacity=".7"/><path d="M40 6 L48 7 L45 14" opacity=".7"/>
+        </svg></div><h3 data-i="st3_t">US Market Expertise &amp; Fluid Exit</h3><p data-i="st3_p">With profound understanding of US capital markets, mastery of diverse listing tools and excellent relationships with major Wall Street underwriters, we design precise, secure and highly efficient exit and liquidity mechanisms.</p></div>
+      <div class="cell rv"><div class="no">04</div>
+        <div class="icon-wrap" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+          <g style="animation:floaty 4.5s ease-in-out infinite">
+            <circle cx="32" cy="16" r="7"/><circle cx="14" cy="46" r="7"/><circle cx="50" cy="46" r="7"/>
+            <line x1="27" y1="21" x2="18" y2="40" opacity=".5"/><line x1="37" y1="21" x2="46" y2="40" opacity=".5"/><line x1="21" y1="46" x2="43" y2="46" opacity=".5"/>
+          </g>
+        </svg></div><h3 data-i="st4_t">Family Office Synergy &amp; Post-Listing Growth</h3><p data-i="st4_p">Deeply integrated with multiple prominent global family offices, our support extends far beyond the IPO — comprehensive post-listing financial planning and global asset allocation for steady, cross-generational capital growth.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="eyebrow rv" data-i="ab_eyebrow">About Us</div>
+    <h2 class="rv-s" data-i="ab_title">Independence is<br>our greatest asset.</h2>
+    <div class="about-grid">
+      <div class="rv-l" style="opacity:1;transform:none">
+        <p class="lead rv" data-i="ab_p1">Unify Investment Group is a global principal investment and strategic advisory conglomerate, jointly established by several internationally renowned family offices, managing a proprietary capital pool exceeding US$700 million.</p>
+        <p class="lead rv" style="margin-top:20px" data-i="ab_p2">Unlike traditional asset managers, we allocate strictly our own capital and manage no outside public funds. This independence keeps us immune to short-term market pressures, upholds true long-termism, and builds profound strategic partnerships with our portfolio companies.</p>
+        <p class="lead rv" style="margin-top:20px" data-i="ab_p3">Our vision is built on rigorous data science: one of the world's top four patent databases and advanced AI technologies power comprehensive technical reviews, market intelligence and competitor analysis — seeing through complexity to identify ideal opportunities well ahead of the market.</p>
+      </div>
+      <div class="values rv-r">
+        <div class="value"><b><span class="vic" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 16 C7 8 25 8 30 16 C25 24 7 24 2 16 Z"/><circle cx="16" cy="16" r="5"/><circle cx="16" cy="16" r="2" fill="currentColor" stroke="none" style="animation:blinkDot 2.6s infinite"/></svg></span><span data-i="v1_t">VISION</span></b><p data-i="v1_p">Inheriting the generational wealth wisdom of prominent family offices to discover future industry leaders with a cross-cycle perspective.</p></div>
+        <div class="value"><b><span class="vic" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2 L6 18 H15 L13 30 L26 13 H16 Z" style="animation:pulse 2.4s ease-in-out infinite;transform-origin:16px 16px"/></svg></span><span data-i="v2_t">AGILITY</span></b><p data-i="v2_p">Operating entirely with proprietary capital preserves exceptional funding flexibility — tailoring the most compliant, suitable capital solutions for each enterprise.</p></div>
+        <div class="value"><b><span class="vic" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 2 L28 7 V16 C28 23 22 28 16 30 C10 28 4 23 4 16 V7 Z"/><path d="M11 16 L14.5 19.5 L21 12" style="animation:blinkDot 2.4s infinite"/></svg></span><span data-i="v3_t">TRUST</span></b><p data-i="v3_p">A pure background free of external fundraising makes us the most trusted, conflict-free and steadfast ally for corporate founders.</p></div>
+      </div>
+    </div>
+
+    <hr class="hairline" style="margin-top:52px">
+    <div class="ceo">
+      <div class="rv-l">
+        <div class="ceo-photo"><img src="assets/ceo.jpg" alt="Eric Huang, CEO of Unify Investment Group"></div>
+        <div class="ceo-name"><b data-i="ceo_name">Eric Huang, J.D., Ph.D.</b><span data-i="ceo_role">Chief Executive Officer<br>Unify Investment Group</span></div>
+      </div>
+      <div class="rv-r">
+        <div class="eyebrow" data-i="ceo_eyebrow">A Word from the CEO</div>
+        <blockquote data-i="ceo_quote">"Data-driven vision, <em>capital-powered</em> future. Capital growth remains our passion and purpose."</blockquote>
+        <p class="body" data-i="ceo_short">In a volatile global market, Unify Investment Group operates on a singular mandate: maximizing capital efficiency and compounding cross-generational wealth through absolute rationality and data-driven precision. For visionaries pioneering disruptive frontiers and family offices seeking a sovereign, technically astute capital ally, Unify provides the definitive platform for global optimization.</p>
+        <details class="letter">
+          <summary data-i="ceo_more">Read the full letter</summary>
+          <div class="full">
+            <p data-i="ceo_f1">Dear Partners and Entrepreneurs,</p>
+            <p data-i="ceo_f2">With our capital pool exceeding US$700 million, we operate strictly as a principal investor. Free from the structural liabilities of external public fund lifecycles, our unmatched operational autonomy allows us to deploy flexible, full-lifecycle venture capital and execute conflict-free strategic plays alongside our partners.</p>
+            <p data-i="ceo_f3">Our mathematical edge lies in the convergence of data and intelligence. By leveraging one of the world's top four proprietary patent databases and advanced AI infrastructure, our models dissect technology at its foundational layer. This analytical dominance mitigates technological risk, maps global competitive landscapes, and uncovers highly accretive cross-border M&amp;A opportunities long before they surface on the broader market.</p>
+            <p data-i="ceo_f4">Capital allocation is merely our catalyst; structured liquidity remains our primary metric of success. The Unify leadership team commands a sophisticated mastery of global capital markets, with a core emphasis on the US financial ecosystem. By structuring bespoke advisory services, navigating advanced listing architectures, and collaborating with premier Wall Street underwriters, we proactively engineer secure, high-yield exit mechanisms for our principal assets.</p>
+            <p class="sig" data-i="ceo_sig">Eric Huang, J.D., Ph.D. — Chief Executive Officer</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- SERVICES -->
+<section id="services" class="alt">
+  <div class="wrap">
+    <div class="eyebrow rv" data-i="sv_eyebrow">Our Services</div>
+    <h2 class="rv-s" data-i="sv_title">Two disciplines.<br>One standard of excellence.</h2>
+    <div class="svc-grid">
+      <div class="svc rv-l">
+        <div class="icon-wrap" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 24 L32 12 L54 24"/><line x1="14" y1="28" x2="14" y2="46"/><line x1="26" y1="28" x2="26" y2="46"/><line x1="38" y1="28" x2="38" y2="46"/><line x1="50" y1="28" x2="50" y2="46"/><line x1="10" y1="50" x2="54" y2="50"/><circle cx="32" cy="19" r="2.4" fill="currentColor" stroke="none" style="animation:blinkDot 2.2s infinite"/><circle cx="32" cy="31" r="24" opacity=".18" style="animation:ringGrow 3.6s ease-out infinite;transform-origin:32px 31px"/></svg></div>
+        <span class="tag" data-i="sv1_tag">Advisory</span>
+        <h3 data-i="sv1_t">Capital Markets Advisory</h3>
+        <ul>
+          <li><span class="sli" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 3 C20 8 20 16 16 22 C12 16 12 8 16 3 Z"/><path d="M12 18 C9 20 8 24 9 27 L13 23"/><path d="M20 18 C23 20 24 24 23 27 L19 23"/><circle cx="16" cy="11" r="2" style="animation:blinkDot 2.4s infinite"/></svg></span><div><b data-i="sv1a_t">SPAC &amp; Direct Listing Advisory</b><span data-i="sv1a_p">Comprehensive strategic consulting, structural planning and resource matching for SPAC mergers or direct listings in international capital markets.</span></div></li>
+          <li><span class="sli" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="16" r="8" style="animation:pulse 3s ease-in-out infinite;transform-origin:12px 16px"/><circle cx="20" cy="16" r="8" opacity=".7" style="animation:pulse 3s 1.5s ease-in-out infinite;transform-origin:20px 16px"/></svg></span><div><b data-i="sv1b_t">Cross-Border M&amp;A Advisory</b><span data-i="sv1b_p">Buy-side and sell-side advisory — target identification, commercial framework evaluation and negotiation strategy planning.</span></div></li>
+          <li><span class="sli" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="16" cy="16" r="7"/><g style="animation:spinSlow 8s linear infinite;transform-origin:16px 16px"><path d="M16 4v5M16 23v5M4 16h5M23 16h5M7.5 7.5l3.5 3.5M21 21l3.5 3.5M24.5 7.5 21 11M11 21l-3.5 3.5"/></g></svg></span><div><b data-i="sv1c_t">Corporate Restructuring &amp; Financial Advisory</b><span data-i="sv1c_p">High-level advisory on financial structure optimization and corporate governance restructuring.</span></div></li>
+          <li><span class="sli" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 26 L12 18 L18 22 L28 10"/><path d="M23 10 h5 v5"/><circle cx="12" cy="18" r="1.6" fill="currentColor" stroke="none" style="animation:blinkDot 2.2s infinite"/></svg></span><div><b data-i="sv1d_t">Post-Listing Financial Planning</b><span data-i="sv1d_p">Governance optimization, regulatory compliance and global asset reallocation post-IPO — keeping capital on a steady growth trajectory.</span></div></li>
+        </ul>
+      </div>
+      <div class="svc rv-r">
+        <div class="icon-wrap" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="22" cy="16" rx="14" ry="5.5"/><path d="M8 16 v10 c0 3 6.3 5.5 14 5.5 s14 -2.5 14 -5.5 v-10"/><path d="M8 26 v10 c0 3 6.3 5.5 14 5.5 s14 -2.5 14 -5.5 v-10"/><path d="M44 34 h12 M51 28 l7 6 -7 6" style="animation:floaty 2.6s ease-in-out infinite"/><circle cx="22" cy="16" r="1.8" fill="currentColor" stroke="none" style="animation:blinkDot 2s infinite"/></svg></div>
+        <span class="tag" data-i="sv2_tag">Principal Capital</span>
+        <h3 data-i="sv2_t">Principal Investment &amp; Tailored Venture Capital</h3>
+        <ul>
+          <li><span class="sli" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="12" width="10" height="16" rx="1"/><rect x="7" y="8" width="10" height="4" rx="1" opacity=".7"/><path d="M18 20 h10 M23 15 l5 5 -5 5" style="animation:floaty 2.4s ease-in-out infinite"/></svg></span><div><b data-i="sv2a_t">PIPE Support</b><span data-i="sv2a_p">Rapid, flexible Private Investment in Public Equity funding for listed companies — fueling expansion, acquisitions or strategic transformation.</span></div></li>
+          <li><span class="sli" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="9" width="24" height="15" rx="2"/><line x1="4" y1="14" x2="28" y2="14"/><line x1="8" y1="20" x2="16" y2="20" style="animation:blinkDot 2.2s infinite"/></svg></span><div><b data-i="sv2b_t">ELOC Solutions</b><span data-i="sv2b_p">Highly efficient Equity Line of Credit frameworks ensuring steady, predictable capital backing through rapid growth phases.</span></div></li>
+          <li><span class="sli" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 28 V16"/><path d="M16 18 C10 18 6 14 6 8 C12 8 16 12 16 18 Z" style="animation:pulse 3.2s ease-in-out infinite;transform-origin:11px 13px"/><path d="M16 22 C22 22 26 18 26 12 C20 12 16 16 16 22 Z" opacity=".7" style="animation:pulse 3.2s 1.6s ease-in-out infinite;transform-origin:21px 17px"/></svg></span><div><b data-i="sv2c_t">Full-Lifecycle Venture Capital</b><span data-i="sv2c_p">Flexible proprietary funding for companies at every stage — from early-stage ventures to mid-to-late-stage leaders.</span></div></li>
+        </ul>
+      </div>
+    </div>
+    <p class="disclaim rv" data-i="sv_disc">* All services provided by the Group consist strictly of strategic, business and financial planning consultation along with the deployment of principal capital, and do not involve any licensed broker-dealer, public fundraising, or regulated asset management activities.</p>
+  </div>
+</section>
+
+<!-- FOCUS -->
+<section id="focus">
+  <div class="wrap">
+    <div class="eyebrow rv" data-i="fo_eyebrow">Investment Focus</div>
+    <h2 class="rv-s" data-i="fo_title">Five frontiers<br>driving human progress.</h2>
+    <div class="focus-grid">
+      <div class="focus rv"><div class="icon-wrap" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 8 C22 24 42 24 42 40 C42 50 36 56 32 56" opacity=".9"/>
+          <path d="M42 8 C42 24 22 24 22 40 C22 50 28 56 32 56" opacity=".55"/>
+          <line x1="24" y1="14" x2="40" y2="14"/><line x1="26" y1="24" x2="38" y2="24" opacity=".6"/><line x1="26" y1="40" x2="38" y2="40" opacity=".6"/><line x1="24" y1="50" x2="40" y2="50"/>
+          <circle cx="22" cy="8" r="2" fill="currentColor" stroke="none" style="animation:blinkDot 2.4s infinite"/>
+          <circle cx="42" cy="56" r="2" fill="currentColor" stroke="none" style="animation:blinkDot 2.4s 1.2s infinite"/>
+        </svg></div><h3 data-i="fo1_t">Life Science &amp; Biomedical</h3><p data-i="fo1_p">Innovative drug R&amp;D, cutting-edge medical technologies and biotech to benefit human health.</p></div>
+      <div class="focus rv"><div class="icon-wrap" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="32" cy="32" r="6"/><circle cx="12" cy="16" r="4"/><circle cx="52" cy="16" r="4"/><circle cx="12" cy="48" r="4"/><circle cx="52" cy="48" r="4"/>
+          <line x1="16" y1="19" x2="27" y2="28" opacity=".5"/><line x1="48" y1="19" x2="37" y2="28" opacity=".5"/><line x1="16" y1="45" x2="27" y2="36" opacity=".5"/><line x1="48" y1="45" x2="37" y2="36" opacity=".5"/>
+          <circle cx="32" cy="32" r="12" opacity=".25" style="animation:ringGrow 3s ease-out infinite;transform-origin:32px 32px"/>
+          <circle cx="12" cy="16" r="1.8" fill="currentColor" stroke="none" style="animation:blinkDot 1.8s infinite"/>
+          <circle cx="52" cy="48" r="1.8" fill="currentColor" stroke="none" style="animation:blinkDot 2.6s .9s infinite"/>
+        </svg></div><h3 data-i="fo2_t">AI</h3><p data-i="fo2_p">AI infrastructure, core algorithms and enterprise applications that substantially enhance industry efficiency.</p></div>
+      <div class="focus rv"><div class="icon-wrap" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="18" y="18" width="28" height="28" rx="3"/>
+          <rect x="26" y="26" width="12" height="12" fill="currentColor" stroke="none" style="animation:coreGlow 2.2s ease-in-out infinite;transform-origin:32px 32px"/>
+          <circle cx="32" cy="32" r="17" opacity=".35" style="animation:ringGrow 2.6s ease-out infinite;transform-origin:32px 32px"/>
+          <line x1="24" y1="18" x2="24" y2="8"/><line x1="32" y1="18" x2="32" y2="8"/><line x1="40" y1="18" x2="40" y2="8"/>
+          <line x1="24" y1="46" x2="24" y2="56"/><line x1="32" y1="46" x2="32" y2="56"/><line x1="40" y1="46" x2="40" y2="56"/>
+          <line x1="18" y1="24" x2="8" y2="24"/><line x1="18" y1="32" x2="8" y2="32"/><line x1="18" y1="40" x2="8" y2="40"/>
+          <line x1="46" y1="24" x2="56" y2="24"/><line x1="46" y1="32" x2="56" y2="32"/><line x1="46" y1="40" x2="56" y2="40"/>
+        </svg></div><h3 data-i="fo3_t">Semiconductor</h3><p data-i="fo3_p">Chip design, advanced manufacturing, next-generation materials and core supply chains.</p></div>
+      <div class="focus rv"><div class="icon-wrap" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+          <g style="animation:floaty 3.6s ease-in-out infinite">
+            <rect x="26" y="28" width="12" height="8" rx="2"/>
+            <line x1="26" y1="30" x2="12" y2="22"/><line x1="38" y1="30" x2="52" y2="22"/>
+            <ellipse cx="12" cy="20" rx="7" ry="2.4" style="animation:pulse 1.6s ease-in-out infinite;transform-origin:12px 20px"/>
+            <ellipse cx="52" cy="20" rx="7" ry="2.4" style="animation:pulse 1.6s .8s ease-in-out infinite;transform-origin:52px 20px"/>
+            <line x1="30" y1="36" x2="28" y2="42" opacity=".6"/><line x1="34" y1="36" x2="36" y2="42" opacity=".6"/>
+          </g>
+          <path d="M22 52 Q32 47 42 52" opacity=".3" style="animation:pulse 3.6s ease-in-out infinite"/>
+        </svg></div><h3 data-i="fo4_t">Unmanned Vehicles</h3><p data-i="fo4_p">Drones, autonomous driving systems, smart logistics vehicles and future mobility technologies.</p></div>
+      <div class="focus rv"><div class="icon-wrap" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+          <g style="animation:spinSlow 9s linear infinite;transform-origin:32px 32px">
+            <path d="M32 10 A22 22 0 0 1 52 24"/><path d="M49 14 L52 24 L42 26" />
+            <path d="M54 38 A22 22 0 0 1 22 52"/><path d="M30 54 L22 52 L26 43"/>
+            <path d="M12 42 A22 22 0 0 1 18 15"/><path d="M14 24 L18 15 L27 20"/>
+          </g>
+          <path d="M32 26 C36 30 36 36 32 40 C28 36 28 30 32 26 Z" fill="currentColor" opacity=".5" stroke="none" style="animation:pulse 3s ease-in-out infinite;transform-origin:32px 33px"/>
+        </svg></div><h3 data-i="fo5_t">Energy &amp; Sustainability</h3><p data-i="fo5_p">Green energy, energy storage, carbon-neutrality solutions and the circular economy.</p></div>
+    </div>
+    <div class="ticket rv">
+      <div class="eyebrow" data-i="tk_eyebrow">Full-Lifecycle Ticket Range</div>
+      <div class="bar"></div>
+      <div class="ends">
+        <div><b>US$200K</b><span data-i="tk_early">Early-stage ventures</span></div>
+        <div style="text-align:right"><b>US$30M</b><span data-i="tk_late">Mid-to-late-stage companies</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOMBSTONES -->
+<section id="tombstones" class="alt">
+  <div class="wrap">
+    <div class="eyebrow rv" data-i="tb_eyebrow">Selected Tombstones</div>
+    <h2 class="rv-s" data-i="tb_title">A track record written<br>across global markets.</h2>
+    <p class="lead rv" data-i="tb_lead">Milestones accumulated by the Unify team and its family office members in global capital markets and industrial investments.</p>
+    <div class="tomb-grid" id="tombGrid"></div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section id="news">
+  <div class="wrap">
+    <div class="eyebrow rv" data-i="nw_eyebrow">News &amp; Press</div>
+    <h2 class="rv-s" data-i="nw_title">In the headlines.</h2>
+    <div class="news-grid" id="newsGrid"></div>
+  </div>
+</section>
+
+<!-- STRUCTURE -->
+<section id="structure" class="alt">
+  <div class="wrap">
+    <div class="eyebrow rv" data-i="gs_eyebrow">Group Structure</div>
+    <h2 class="rv-s" data-i="gs_title">Global reach.<br>Local depth.</h2>
+    <div class="struct">
+      <div class="entity rv-l">
+        <div class="icon-wrap" aria-hidden="true"><svg viewBox="0 0 84 84" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="42" cy="42" r="28"/>
+          <ellipse cx="42" cy="42" rx="12" ry="28"/>
+          <ellipse cx="42" cy="42" rx="28" ry="11" opacity=".6"/>
+          <path d="M16 32 h52 M16 52 h52" opacity=".4"/>
+          <g style="animation:spinSlow 10s linear infinite;transform-origin:42px 42px">
+            <circle cx="42" cy="6" r="3.4" fill="currentColor" stroke="none"/>
+            <circle cx="42" cy="42" r="36" opacity=".25" stroke-dasharray="4 7"/>
+          </g>
+        </svg></div>
+        <div class="where" data-i="e1_where">Seychelles · International Hub</div>
+        <h3>Unify Investment (Seychelles)</h3>
+        <div class="zh-name">&nbsp;</div>
+        <p class="pos" data-i="e1_pos">The international capital and resource integration hub of Unify Investment Group.</p>
+        <ul>
+          <li class="rv" data-i="e1_a">Global principal investment allocation</li>
+          <li class="rv" data-i="e1_b">International capital markets strategy — SPAC / Direct Listing / PIPE / ELOC</li>
+          <li class="rv" data-i="e1_c">Offshore corporate structure planning</li>
+        </ul>
+      </div>
+      <div class="link" aria-hidden="true"><svg viewBox="0 0 150 110" fill="none" stroke="currentColor" stroke-width="2">
+  <path class="flow" d="M12 38 C 50 10, 100 10, 138 38"/>
+  <path d="M128 30 L139 38 L126 44" stroke-width="2.4"/>
+  <path class="flow rev" d="M138 72 C 100 100, 50 100, 12 72"/>
+  <path d="M22 80 L11 72 L24 66" stroke-width="2.4"/>
+  <circle r="4.5" fill="currentColor" stroke="none"><animateMotion dur="2.6s" repeatCount="indefinite" path="M12 38 C 50 10, 100 10, 138 38"/></circle>
+  <circle r="4.5" fill="currentColor" stroke="none" opacity="0"><set attributeName="opacity" to="0.85" begin="1.3s"/><animateMotion dur="2.6s" begin="1.3s" repeatCount="indefinite" path="M138 72 C 100 100, 50 100, 12 72"/></circle>
+  <circle cx="75" cy="55" r="7" opacity=".5"/>
+  <circle cx="75" cy="55" r="14" opacity=".22" style="animation:ringGrow 2.8s ease-out infinite;transform-origin:75px 55px"/>
+</svg></div>
+      <div class="entity rv-r">
+        <div class="icon-wrap" aria-hidden="true"><svg viewBox="0 0 84 84" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="42" y1="4" x2="42" y2="14" style="animation:blinkDot 1.8s infinite"/>
+          <circle cx="42" cy="6" r="1.8" fill="currentColor" stroke="none" style="animation:blinkDot 1.8s infinite"/>
+          <path d="M38 14 h8 l1.5 8 h-11 Z"/>
+          <path d="M35 22 h14 l2 10 h-18 Z" opacity=".9"/>
+          <path d="M33 32 h18 l2 10 h-22 Z" opacity=".8"/>
+          <path d="M31 42 h22 l2 10 h-26 Z" opacity=".7"/>
+          <path d="M29 52 h26 l2 10 h-30 Z" opacity=".6"/>
+          <path d="M24 62 h36 v8 h-36 Z" opacity=".5"/>
+          <line x1="12" y1="74" x2="72" y2="74" opacity=".4"/>
+          <circle cx="42" cy="40" r="34" opacity=".18" style="animation:ringGrow 4s ease-out infinite;transform-origin:42px 40px"/>
+        </svg></div>
+        <div class="where" data-i="e2_where">Taiwan · Asia-Pacific Anchor</div>
+        <h3><a href="https://capital.tisglobalinc.com" target="_blank" rel="noopener" class="ext-link">TIS Capital (Taiwan)</a></h3>
+        <div class="zh-name">泰然資本控股股份有限公司</div>
+        <p class="pos" data-i="e2_pos">The pioneer of Unify Investment Group, deeply rooted in the Asia-Pacific and Taiwan markets.</p>
+        <ul>
+          <li class="rv" data-i="e2_a">Financial strategy advisory for Taiwanese enterprises</li>
+          <li class="rv" data-i="e2_b">Cross-border M&amp;A consulting</li>
+          <li class="rv" data-i="e2_c">Early-stage investment matching &amp; incubation in deep-tech and biomedical ecosystems</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KEY MEMBERS -->
+<section id="team">
+  <div class="wrap">
+    <div class="eyebrow rv" data-i="tm_eyebrow">Key Members</div>
+    <h2 class="rv-s" data-i="tm_title">The people behind<br>the platform.</h2>
+    <div class="team-grid">
+      <div class="member rv">
+        <div class="ph"><img src="assets/Warren Chang.jpg" alt="Warren Chang" loading="lazy"></div>
+        <div class="tx">
+          <h3>Warren Chang</h3>
+          <div class="role" data-i="tm1_role">Co-chair / Managing Director</div>
+          <div class="org">Fremont Capital</div>
+        </div>
+      </div>
+      <div class="member rv">
+        <div class="ph"><img src="assets/Chen, Sen-Tian.jpg" alt="Sen-Tian Chen" loading="lazy"></div>
+        <div class="tx">
+          <h3>Sen-Tian Chen</h3>
+          <div class="role" data-i="tm2_role">Shanghai Partner</div>
+          <div class="org">Shanghai Grand City Development and Golf Club</div>
+        </div>
+      </div>
+      <div class="member rv">
+        <div class="ph"><img src="assets/Marie Adersson.jpg" alt="Marie Adersson" loading="lazy"></div>
+        <div class="tx">
+          <h3>Marie Adersson</h3>
+          <div class="role" data-i="tm3_role">Entrepreneur in Residence / EU Contacts</div>
+          <div class="org">cAIre Tech</div>
+          <div class="cred" data-i="tm3_cred">Linköping University MBA<br>Certified Board Member — Rätt fokus i styrelsearbetet</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="globe g-end" aria-hidden="true"><svg viewBox="0 0 600 600" fill="none" stroke="currentColor" stroke-width="1.1"><g style="animation:spinSlow 140s linear infinite;transform-origin:300px 300px"><circle cx="300" cy="300" r="270" stroke-width="1.6"/><ellipse cx="300" cy="300" rx="45" ry="270" opacity=".55"/><ellipse cx="300" cy="300" rx="110" ry="270" opacity=".55"/><ellipse cx="300" cy="300" rx="175" ry="270" opacity=".55"/><ellipse cx="300" cy="300" rx="235" ry="270" opacity=".55"/><path d="M 165 66 A 135 38 0 0 0 435 66" opacity=".45"/><path d="M 79 145 A 221 62 0 0 0 521 145" opacity=".45"/><path d="M 30 300 A 270 76 0 0 0 570 300" opacity=".45"/><path d="M 79 455 A 221 62 0 0 0 521 455" opacity=".45"/><path d="M 165 534 A 135 38 0 0 0 435 534" opacity=".45"/><circle cx="150" cy="180" r="4" fill="currentColor" stroke="none" style="animation:blinkDot 2.0s infinite"/><circle cx="430" cy="150" r="4" fill="currentColor" stroke="none" style="animation:blinkDot 2.4s infinite"/><circle cx="500" cy="330" r="4" fill="currentColor" stroke="none" style="animation:blinkDot 2.8s infinite"/><circle cx="210" cy="470" r="4" fill="currentColor" stroke="none" style="animation:blinkDot 3.2s infinite"/><circle cx="370" cy="420" r="4" fill="currentColor" stroke="none" style="animation:blinkDot 3.6s infinite"/><circle cx="120" cy="330" r="4" fill="currentColor" stroke="none" style="animation:blinkDot 4.0s infinite"/><path d="M 150 180 Q 290 95 430 150" opacity=".5" stroke-dasharray="3 6"/><path d="M 430 150 Q 465 170 500 330" opacity=".5" stroke-dasharray="3 6"/><path d="M 500 330 Q 435 305 370 420" opacity=".5" stroke-dasharray="3 6"/><path d="M 210 470 Q 290 375 370 420" opacity=".5" stroke-dasharray="3 6"/><path d="M 120 330 Q 165 330 210 470" opacity=".5" stroke-dasharray="3 6"/><path d="M 120 330 Q 135 185 150 180" opacity=".5" stroke-dasharray="3 6"/><path d="M 430 150 Q 400 215 370 420" opacity=".5" stroke-dasharray="3 6"/></g></svg></div>
+  <div class="wrap">
+    <div class="eyebrow rv" data-i="ct_eyebrow">Contact Us</div>
+    <h2 class="rv-s" data-i="ct_title">Let's build<br>what's next.</h2>
+    <div class="contact-grid">
+      <div class="office rv">
+        <div class="oic" aria-hidden="true"><svg viewBox="0 0 46 46" fill="none" stroke="currentColor" stroke-width="2"><circle cx="23" cy="23" r="15"/><ellipse cx="23" cy="23" rx="6.5" ry="15"/><path d="M9 18 h28 M9 28 h28" opacity=".5"/><circle cx="23" cy="23" r="19" opacity=".2" style="animation:ringGrow 3.4s ease-out infinite;transform-origin:23px 23px"/></svg></div>
+        <h3>Unify Investment Limited</h3>
+        <div class="sub2" data-i="o1_loc">Seychelles Office</div>
+        <p data-i="o1_p">Global principal investment · Capital markets strategic advisory · PIPE / ELOC structuring consultation</p>
+      </div>
+      <div class="office rv">
+        <div class="oic" aria-hidden="true"><svg viewBox="0 0 46 46" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 4 C30 4 35 9 35 16 C35 26 23 40 23 40 C23 40 11 26 11 16 C11 9 16 4 23 4 Z"/><circle cx="23" cy="16" r="5" style="animation:pulse 2.6s ease-in-out infinite;transform-origin:23px 16px"/></svg></div>
+        <h3><a href="https://capital.tisglobalinc.com" target="_blank" rel="noopener" class="ext-link">TIS Capital 泰然資本</a></h3>
+        <div class="sub2" data-i="o2_loc">Taiwan Office</div>
+        <p data-i="o2_p">Taiwan &amp; APAC financial advisory · Cross-border M&amp;A consulting · Deep-tech &amp; biomedical early-stage incubation</p>
+      </div>
+    </div>
+    <div class="contact-cta rv"><a href="mailto:contact@unifyinvestment.com" data-i="ct_cta">Start a conversation</a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-brand">UNIFY <span data-i="brand2f">INVESTMENT GROUP</span></div>
+    <p class="legal" data-i="legal">"Unify Investment Group is an investment and advisory group formed by several prominent family offices deploying principal capital. The Group solely invests its own proprietary capital and does not manage, advise, or pool any third-party or public funds. All services provided consist strictly of corporate strategy, business development, and capital markets advisory services, and do not involve any licensed broker-dealer, financial institution or securities underwriting activities."</p>
+    <div class="copy">© 2026 Unify Investment Group. All rights reserved.</div>
+  </div>
+</footer>
+<script>
+/* ============ data ============ */
+const TOMBS=[
+ {n:"X.com / PayPal",logo:"paypal.png",note:{en:"Global Digital Payment Leader",zh:"全球數位支付領導者"},pill:{en:"NASDAQ IPO",zh:"NASDAQ 上市"}},
+ {n:"AMETEK, Inc.",logo:"ametek.png",note:{en:"Global Maker of Electronic Instruments and Devices",zh:"全球電子儀器與設備製造商"},pill:{en:"NYSE: AME",zh:"NYSE: AME"}},
+ {n:"SemiLEDs",logo:"semileds.png",note:{en:"Global LED Chip Manufacturer",zh:"全球 LED 晶片製造商"},pill:{en:"NASDAQ: LEDS",zh:"NASDAQ: LEDS"}},
+ {n:"BizLink",logo:"bizlink.png",note:{en:"Global Interconnect Solutions Leader",zh:"全球連接方案領導者"},pill:{en:"Convertible Bond",zh:"可轉換公司債"}},
+ {n:"FairTech Corporation",logo:"fairtech_en.png",note:{en:"Semiconductor Equipment & Services",zh:"半導體設備與服務"},pill:{en:"Acquired by Foxsemicon",zh:"由京鼎精密收購"}},
+ {n:"Innovue",logo:"innovue.png",note:{en:"IP Intelligence & Patent Analytics",zh:"智慧財產與專利分析"},pill:{en:"Strategic",zh:"策略投資"}},
+ {n:"Attune Pharmaceuticals",logo:"attune.png",note:{en:"Biomedical R&D",zh:"生醫研發"},pill:{en:"Private",zh:"未上市"}},
+ {n:"AbGenomics / AltruBio",logo:"altrubio_white.png",note:{en:"Advanced Biopharmaceuticals & Antibody R&D",zh:"先進生物製藥與抗體研發"},pill:{en:"US$225M Series B",zh:"2.25 億美元 B 輪"}},
+ {n:"International Media Acquisition Corp",logo:"imaq.png",note:{en:"Special Purpose Acquisition Company",zh:"特殊目的收購公司"},pill:{en:"RTO by Valix Biofuel",zh:"由 Valix Biofuel 反向併購"}},
+ {n:"Critical Metals Corp",logo:"criticalmetals.png",note:{en:"Critical Minerals & Clean Energy Materials",zh:"關鍵礦物與潔淨能源材料"},pill:{en:"NASDAQ: CRML",zh:"NASDAQ: CRML"}},
+ {n:"Hotel101 Global",logo:"hotel101.png",note:{en:"Global Hospitality Platform",zh:"全球旅宿平台"},pill:{en:"NASDAQ: HBNB",zh:"NASDAQ: HBNB"}},
+ {n:"Hydroionic Technologies",logo:"hydroionic.png",note:{en:"Advanced Water & Environmental Tech",zh:"先進水處理與環境科技"},pill:{en:"Private",zh:"未上市"}},
+ {n:"ADMtek Inc.",logo:"admtek.png",note:{en:"Networking Semiconductors",zh:"網通半導體"},pill:{en:"Acquired by Infineon",zh:"由英飛凌收購"}},
+ {n:"AnaSpec Inc.",logo:"anaspec.png",note:{en:"Proteomics & Peptide Solutions",zh:"蛋白質體與胜肽方案"},pill:{en:"Acquired by Eurogentec",zh:"由 Eurogentec 收購"}},
+ {n:"Inotera Memories",logo:"inotera.png",note:{en:"DRAM Manufacturing",zh:"DRAM 製造"},pill:{en:"TWSE: 3474",zh:"台灣證交所: 3474"}},
+ {n:"Applied Optoelectronics",logo:"appliedopto.png",note:{en:"Optical Networking Components",zh:"光通訊元件"},pill:{en:"NASDAQ: AAOI",zh:"NASDAQ: AAOI"}},
+ {n:"3S Silicon Tech",logo:"3ssilicon.png",note:{en:"Silicon & Semiconductor Technology",zh:"矽晶與半導體技術"},pill:{en:"TPEX: 5297",zh:"櫃買中心: 5297"}},
+ {n:"LotusNine 深禾醫學",logo:"lotusnine.png",raw:1,note:{en:"5G Mobile AI Healthcare",zh:"5G 行動 AI 醫療"},pill:{en:"TPEX: 7681",zh:"櫃買中心: 7681"}},
+ {n:"Alpha & Omega Semiconductor",logo:"aos.png",note:{en:"Power Semiconductors",zh:"功率半導體"},pill:{en:"NASDAQ: AOSL",zh:"NASDAQ: AOSL"}},
+ {n:"Azalea Networks",logo:"azalea.png",note:{en:"Wireless Mesh Networks",zh:"無線網狀網路"},pill:{en:"Acquired by Aruba Networks",zh:"由 Aruba Networks 收購"}},
+ {n:"Envivio Inc.",logo:"envivio.png",note:{en:"Video Encoding Software · NASDAQ: ENVI",zh:"影音編碼軟體 · NASDAQ: ENVI"},pill:{en:"Acquired by Ericsson",zh:"由愛立信收購"}},
+ {n:"Ion Electronic Materials",logo:"iem.png",raw:1,note:{en:"Electronic Materials",zh:"電子材料"},pill:{en:"TPEX: 6959",zh:"櫃買中心: 6959"}},
+ {n:"Talent Intelligence Strategies",logo:"tis_light.png",big:1,note:{en:"AI-Powered Patent Valuation & Licensing",zh:"AI 專利估值與授權"},pill:{en:"Strategic",zh:"策略投資"}}
+];
+const NEWS=[
+ {t:{en:"UC Berkeley School of Public Health Launches Center for Health Innovations and Entrepreneurship",zh:"UC 柏克萊公共衛生學院成立健康創新與創業中心"},src:"Research UC Berkeley",img:"assets/news/news1_berkeley.jpg",url:"https://vcresearch.berkeley.edu/news/uc-berkeley-school-public-health-launches-center-health-innovations-and-entrepreneurship",
+  d:{en:"Backed by a US$10 million gift from Qianlong Holding Group — with principal Eric Huang pledging sustainable funding — the new Berkeley center unites academia and industry to accelerate biotech, medtech and digital-health innovation for an aging population.",
+     zh:"由Qianlong Holding Group捐贈 1,000 萬美元設立，負責人 Eric Huang 承諾提供永續資金。新中心將串聯柏克萊學術能量與產業創新，加速生技、醫療科技與數位健康發展，因應高齡化社會的健康挑戰。"}},
+ {t:{en:"Tai Ran Capital Acquires Taiwan's Largest NASDAQ-Listed SPAC",zh:"泰然資本收購台灣在納斯達克最大的特殊目的上市公司"},src:"工商時報 · Commercial Times",img:"assets/news/news2_ctee.jpg",url:"https://www.ctee.com.tw/news/20231221700532-431201",
+  d:{en:"Tai Ran Capital, together with UK-based Unify Investment, acquired IMAQ — Taiwan's largest NASDAQ SPAC with US$230 million in capital — joined by PIPE investors including Fullerton, Ontogeny and First Euro Capital, targeting ASEAN renewables and cell therapy.",
+     zh:"泰然資本聯手英商 Unify 投資公司，拿下全台最大規模的那斯達克 SPAC——IMAQ（資本規模 2.3 億美元），並攜手 Fullerton、Ontogeny、First Euro 等私募基金加入 PIPE 投資，鎖定東南亞再生能源與細胞治療產業。"}},
+ {t:{en:"VCI Biofuels to Go Public via Merger with International Media Acquisition Corp",zh:"VCI Biofuels 將透過與 International Media Acquisition Corp 合併上市"},src:"Vietnam Investment Review",img:"assets/news/news3_vci.jpg",url:"https://vir.com.vn/vci-biofuels-to-go-public-via-merger-with-international-media-acquisition-corp-126143.html",
+  d:{en:"Vietnam's leading bio-ethanol producer signed a definitive merger with IMAQ at an implied US$1 billion enterprise value. The combined company, to be renamed VI Energy, is expected to list on NASDAQ and expand into sustainable aviation fuel.",
+     zh:"越南領先的生質乙醇製造商與 IMAQ 簽署正式合併協議，隱含企業價值達 10 億美元。合併後公司將更名為 VI Energy，預計於納斯達克上市，並進軍永續航空燃料市場。"}},
+ {t:{en:"Foxsemicon Acquires 51% Stake in FairTech Corporation",zh:"京鼎收購富蘭登 51％ 股權"},src:"工商時報 · Yahoo 股市",img:"assets/news/news4_foxsemicon.jpg",url:"https://tw.stock.yahoo.com/news/%E4%BA%AC%E9%BC%8E-%E6%94%B6%E8%B3%BC%E5%AF%8C%E8%98%AD%E7%99%BB51-%E8%82%A1%E6%AC%8A-201000239.html",
+  d:{en:"Foxsemicon, a Foxconn-group semiconductor equipment maker, acquired a 51% controlling stake in FairTech for roughly NT$2 billion — expanding its equipment-services capacity and customer base across the semiconductor supply chain.",
+     zh:"鴻海集團旗下半導體設備廠京鼎精密，以約新台幣 20 億元收購富蘭登科技 51% 股權，取得經營控制權，擴大半導體設備服務能量與客戶基礎。"}},
+ {t:{en:"Ericsson Announces Agreement to Acquire Envivio, Inc.",zh:"愛立信宣布協議收購 Envivio, Inc."},src:"GlobeNewswire",img:"assets/news/news5_envivio.jpg",url:"https://www.globenewswire.com/news-release/2015/09/10/767342/15965/en/Ericsson-Announces-Agreement-to-Acquire-Envivio-Inc.html",
+  d:{en:"Ericsson agreed to acquire NASDAQ-listed Envivio, a pioneer in software-based video encoding, for approximately US$125 million — strengthening its TV compression portfolio for the cloud era.",
+     zh:"愛立信宣布以約 1.25 億美元收購那斯達克上市的軟體影音編碼先驅 Envivio，強化其雲端時代電視壓縮技術布局。"}},
+ {t:{en:"Aruba Networks acquires Azalea for US$40m",zh:"Aruba Networks 以 4,000 萬美元收購 Azalea Networks"},src:"techpartner.news",img:"assets/news/news6_aruba.jpg",url:"https://www.techpartner.news/news/aruba-networks-acquires-azalea-for-us40m-174299",
+  d:{en:"Aruba Networks acquired wireless-mesh specialist Azalea Networks for US$40 million, adding outdoor mesh networking technology and a strong China market presence to its enterprise wireless portfolio.",
+     zh:"Aruba Networks 以 4,000 萬美元收購無線網狀網路專家 Azalea Networks，取得戶外 mesh 網路技術與深厚的中國市場布局，壯大其企業無線產品線。"}},
+ {t:{en:"Eurogentec to Acquire Proteomics Company AnaSpec",zh:"Eurogentec 將收購蛋白質體學公司 AnaSpec"},src:"Genetic Engineering & Biotechnology News",img:"assets/news/news7_gen.png",imgmode:"contain",url:"https://www.genengnews.com/news/eurogentec-to-acquire-proteomics-company-anaspec/",
+  d:{en:"Belgium's Eurogentec agreed to acquire California-based AnaSpec, a specialist in peptides, antibodies and proteomics reagents — uniting complementary genomics and proteomics portfolios and expanding its North American footprint.",
+     zh:"比利時 Eurogentec 收購加州蛋白質體學公司 AnaSpec——其專精於胜肽、抗體與蛋白質體試劑——結合雙方互補的基因體與蛋白質體產品線，並擴大北美市場版圖。"}},
+ {t:{en:"AltruBio Raises $225M in Series B to Advance Ulcerative Colitis Candidate",zh:"AltruBio 完成 2.25 億美元 B 輪募資，推進潰瘍性結腸炎候選藥物"},src:"BioSpace",img:"assets/news/news8_altrubio.jpg",url:"https://www.biospace.com/altrubio-raises-225m-in-series-b-to-advance-ulcerative-colitis-candidate",
+  d:{en:"AltruBio — formerly AbGenomics — closed a US$225 million Series B led by top life-science investors to advance its immune-checkpoint-enhancer antibody ALTB-268 into mid-stage trials for moderate-to-severe ulcerative colitis.",
+     zh:"AltruBio（前身為 AbGenomics）完成 2.25 億美元 B 輪募資，由頂尖生命科學投資機構領投，推動其免疫檢查點增強抗體 ALTB-268 進入中重度潰瘍性結腸炎的中期臨床試驗。"}}
+];
+
+/* ============ i18n ============ */
+const ZH={
+ brand2:"INVESTMENT GROUP",brand2f:"INVESTMENT GROUP",
+ n_home:"首頁",n_about:"關於我們",n_services:"服務項目",n_focus:"投資領域",n_tomb:"精選案例",n_news:"新聞與媒體",n_struct:"集團架構",n_contact:"聯絡我們",
+ h_eyebrow:"自有資金投資 · 策略顧問",
+ h_title:"凝聚遠見，<br>驅動全球創新。",
+ h_sub:"我們的熱忱在於幫助您的成長。",
+ h_copy:"Unify Investment Group 是由多家國際知名家族辦公室共同創立的頂級國際投資與策略顧問集團，自有資本池規模超過 7 億美元。我們在全球部署自有資本，並為具產業重塑潛力的夥伴提供高階資本市場顧問與靈活的資金解決方案。",
+ s1:"資本池規模",s2:"前沿投資領域",s3:"精選投資案例",s4:"自有資金",
+ st_eyebrow:"核心優勢",st_title:"全球創業者選擇 Unify<br>的四個理由。",
+ st1_t:"資本雄厚<br>專注自營",st1_p:"以超過 5 億美元的家族辦公室資本為後盾，我們百分之百專注於自有資金投資與策略指導，不管理任何第三方或公眾基金，確保卓越的決策效率與絕對的保密性。",
+ st2_t:"智慧數據<br>眼光精準",st2_p:"依託全球四大專利資料庫之一與先進 AI 應用，我們執行嚴謹的技術可行性、市場情報與競爭者分析——洞察表象之下的本質，精準預判趨勢，先於市場鎖定理想併購標的。",
+ st3_t:"專精美國市場<br>退出機制流暢",st3_p:"深諳美國資本市場，熟稔各類上市工具，並與華爾街主要承銷商保持深厚合作關係，為資本與被投企業設計精準、安全且高效的退出與流動性機制。",
+ st4_t:"家族辦公室綜效<br>上市後持續成長",st4_p:"與多家國際知名家族辦公室深度整合，支持遠不止於 IPO——提供完善的上市後財務規劃與全球資產配置，確保資本穩健的跨世代成長。",
+ ab_eyebrow:"關於我們",ab_title:"獨立性，<br>是我們最大的資產。",
+ ab_p1:"Unify Investment Group是一家兼具深厚財務實力與跨境資源整合能力的全球自有資金投資與策略顧問集團，由多家國際知名家族辦公室共同設立，目前管理超過 7 億美元的自有資本池。",
+ ab_p2:"有別於傳統第三方資產管理公司，我們僅管理與配置集團自有資本，不管理任何外部公眾基金。這份獨立性使我們免受短期市場壓力影響，堅守真正的長期主義，與被投企業建立深厚的策略夥伴關係。",
+ ab_p3:"精準的眼光與卓越的回報，建立於嚴謹的數據科學之上：Unify 投資團隊運用全球四大專利資料庫之一與先進 AI 技術，進行全面的技術可行性審查、市場情報與競爭者分析——洞穿技術複雜性，先於市場發現理想標的。",
+ v1_t:"遠見 VISION",v1_p:"傳承知名家族辦公室的跨世代財富智慧，以跨週期視角發掘未來產業領袖。",
+ v2_t:"靈活 AGILITY",v2_p:"完全以自有資本運作，保有卓越的資金彈性，為企業量身打造最合規、最合適的資本方案。",
+ v3_t:"信任 TRUST",v3_p:"不對外募資的純粹背景，使我們成為企業創辦人最值得信賴、無利益衝突且堅定不移的盟友。",
+ ceo_name:"黃梓洋 博士",ceo_role:"執行長<br>Unify Investment Group",ceo_eyebrow:"執行長的話",ceo_sig:"執行長 黃梓洋 博士",
+ ceo_quote:"「<em>數據</em>驅動遠見，<em>資本</em>成就未來。<em>資本成長</em>，始終是我們的熱情與使命。」",
+ ceo_short:"在波動的全球市場中，Unify Investment Group秉持單一使命：以絕對理性與數據驅動的精準，極大化資本效率、複利累積跨世代財富。對於開拓顛覆性前沿的遠見者，以及尋求獨立自主、深諳技術之資本盟友的家族辦公室而言，Unify 是全球優化的最佳平台。",
+ ceo_more:"閱讀完整信函",
+ ceo_f1:"親愛的夥伴與創業者們：",
+ ceo_f2:"我們的資本池規模超過 7 億美元，並嚴格以自有資金投資者的身分運作。不受外部公募基金生命週期的結構性約束，無可比擬的營運自主性使我們能夠部署靈活、全生命週期的創業投資，並與夥伴共同執行無利益衝突的策略布局。",
+ ceo_f3:"我們的基礎優勢來自於匯聚智慧數據。透過全球四大專利資料庫之一與先進的 AI 基礎設施，我們的模型能在最底層解構技術。這種分析上的優勢降低了技術風險、繪製全球競爭格局，並在跨境併購機會浮現於大眾市場之前搶先發掘。",
+ ceo_f4:"資本配置只是我們的催化劑；結構化的流動性才是我們衡量成功的首要指標。Unify 領導團隊精通全球資本市場，尤其深耕美國金融生態系。透過量身打造的顧問服務、先進的上市架構規劃，以及與華爾街頂級承銷商的合作，我們主動為自有資產打造安全、高收益的退出機制。",
+ sv_eyebrow:"服務項目",sv_title:"兩大專業，<br>同一卓越標準。",
+ sv1_tag:"顧問服務",sv1_t:"資本市場顧問",
+ sv1a_t:"SPAC 與直接上市顧問",sv1a_p:"為尋求於國際資本市場進行 SPAC 合併或直接上市的企業，提供全方位策略諮詢、架構規劃與資源媒合。",
+ sv1b_t:"跨境併購顧問",sv1b_p:"提供買方與賣方顧問服務，包括標的篩選、商業架構評估與談判策略規劃。",
+ sv1c_t:"企業重組與財務顧問",sv1c_p:"提供財務結構優化、公司治理重組等高階顧問服務。",
+ sv1d_t:"上市後財務規劃",sv1d_p:"攜手知名家族辦公室，提供 IPO 後的公司治理優化、法規遵循諮詢與全球資產再配置，讓資本行穩致遠。",
+ sv2_tag:"自有資金",sv2_t:"自有資金投資與客製化創投",
+ sv2a_t:"PIPE 資金支持",sv2a_p:"以上市公司私募股權投資（PIPE）方式，提供快速且靈活的資金，挹注後續擴張、併購或策略轉型。",
+ sv2b_t:"ELOC 解決方案",sv2b_p:"設計高效的股權信用額度（ELOC）融資架構，在高速成長階段確保穩定、可預期的資金後盾。",
+ sv2c_t:"全生命週期創業投資",sv2c_p:"以自有資本為各成長階段的企業提供靈活資金——從早期新創到中後期領導者。",
+ sv_disc:"＊本集團所提供之各項服務，僅限於策略、商業與財務規劃諮詢及自有資金之投入，不涉及任何持牌證券商、公開募資或受監管之資產管理業務。",
+ fo_eyebrow:"投資領域",fo_title:"驅動人類進步的<br>五大前沿。",
+ fo1_t:"生命科學與生醫",fo1_p:"聚焦創新藥物研發、尖端醫療技術與造福人類健康的生物科技。",
+ fo2_t:"人工智慧",fo2_p:"投資 AI 基礎設施、核心演算法與大幅提升產業效率的企業級 AI 應用。",
+ fo3_t:"半導體",fo3_p:"涵蓋晶片設計、先進製程技術、次世代半導體材料與核心供應鏈。",
+ fo4_t:"無人載具",fo4_p:"包括無人機、自動駕駛系統、智慧物流載具與未來移動技術。",
+ fo5_t:"能源與永續",fo5_p:"聚焦綠色能源、儲能技術、碳中和解決方案與循環經濟。",
+ tk_eyebrow:"全生命週期投資額度",tk_early:"早期新創",tk_late:"中後期企業",
+ tb_eyebrow:"精選案例",tb_title:"橫跨全球市場的<br>投資足跡。",
+ tb_lead:"Unify 團隊與家族辦公室成員於全球資本市場及產業投資中累積的重要里程碑。",
+ nw_eyebrow:"新聞與媒體",nw_title:"媒體焦點。",
+ gs_eyebrow:"集團架構",gs_title:"全球視野，<br>在地深耕。",
+ e1_where:"塞席爾 · 國際樞紐",e1_pos:"Unify Investment Group的國際資本與資源整合樞紐。",
+ e1_a:"全球自有資金投資配置",e1_b:"國際資本市場策略諮詢——SPAC／直接上市／PIPE／ELOC",e1_c:"境外公司架構規劃",
+ e2_where:"台灣 · 亞太據點",e2_pos:"Unify Investment Group深耕亞太與台灣市場的先鋒。",
+ e2_a:"台灣本地企業財務策略顧問",e2_b:"跨境併購諮詢",e2_c:"深科技與生醫生態系早期投資媒合與孵化",
+ tm_eyebrow:"核心成員",tm_title:"平台背後的<br>核心團隊。",
+ tm1_role:"聯合主席／董事總經理",
+ tm2_role:"上海合夥人",
+ tm3_role:"駐點創業家／歐盟聯絡窗口",
+ tm3_cred:"林雪平大學（Linköping University）MBA<br>認證董事會成員 — Rätt fokus i styrelsearbetet",
+ ct_eyebrow:"聯絡我們",ct_title:"攜手共創<br>下一個里程碑。",
+ o1_loc:"塞席爾辦公室",o1_p:"全球自有資金投資 · 資本市場策略顧問 · PIPE／ELOC 架構諮詢",
+ o2_loc:"台灣辦公室",o2_p:"台灣與亞太財務顧問 · 跨境併購諮詢 · 深科技與生醫早期孵化",
+ ct_cta:"展開對話",
+ legal:"「Unify Investment Group為多家知名家族辦公室以自有資本組成之投資與顧問集團。本集團僅投資自有資本，不受託管理、不提供投資顧問、亦不募集任何第三方或公眾資金。所提供之一切服務僅限於企業策略、業務發展與資本市場顧問服務，不涉及任何持牌證券商、金融機構或證券承銷業務。」",
+ nw_read:"閱讀報導 →",tb_hover:""
+};
+const EN={};/* filled from DOM on load */
+
+/* ============ render ============ */
+let LANG='en';
+function renderTombs(){
+  document.getElementById('tombGrid').innerHTML=TOMBS.map((t,i)=>`
+   <div class="tomb rv-s" style="transition-delay:${(i%8)*70}ms">
+     <div class="lg"><img src="assets/logos/${t.logo}" alt="${t.n} logo" loading="lazy" class="${t.raw?'raw ':''}${t.big?'big':''}" style="animation-delay:${(i%7)*0.55}s"></div>
+     <h4>${t.n}</h4>
+     <div class="note">${t.note[LANG]}</div>
+     <div class="pill">${t.pill[LANG]}</div>
+   </div>`).join('');
+  observeRv();
+}
+function renderNews(){
+  const read=LANG==='zh'?'閱讀報導 →':'Read the story →';
+  document.getElementById('newsGrid').innerHTML=NEWS.map(n=>`
+   <a class="news-card rv" href="${n.url}" target="_blank" rel="noopener">
+     <div class="im ${n.img?(n.imgmode==='contain'?'contain':''):'textcard'}">
+       ${n.img?`<img src="${n.img}" alt="" loading="lazy">`:`<div class="q">"</div><div class="src">工商時報</div>`}
+     </div>
+     <div class="tx">
+       <div class="meta">${n.src}</div>
+       <h4>${n.t[LANG]}</h4>
+       <p class="desc">${n.d?n.d[LANG]:''}</p>
+       <div class="arrow">${read}</div>
+     </div>
+   </a>`).join('');
+  observeRv();
+}
+
+/* ============ i18n swap ============ */
+function captureEN(){document.querySelectorAll('[data-i]').forEach(el=>{EN[el.dataset.i]=el.innerHTML})}
+function setLang(l){
+  LANG=l;
+  const dict=l==='zh'?ZH:EN;
+  document.querySelectorAll('[data-i]').forEach(el=>{const k=el.dataset.i;if(dict[k]!==undefined)el.innerHTML=dict[k]});
+  document.documentElement.lang=l==='zh'?'zh-Hant':'en';
+  document.querySelectorAll('#langSeg button').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));
+  renderTombs();renderNews();
+}
+
+/* ============ behaviors ============ */
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>{
+  nav.classList.toggle('solid',scrollY>60);
+  const y=scrollY;
+  const b=document.getElementById('bgfx');
+  if(b){b.children[0].style.marginTop=(y*0.06)+'px';b.children[1].style.marginTop=(-y*0.04)+'px';b.children[2].style.marginTop=(-y*0.08)+'px'}
+  const hr=document.querySelector('.hero-rings');
+  if(hr)hr.style.transform='translateY('+y*0.18+'px)';
+},{passive:true});
+
+const burger=document.getElementById('burger'),links=document.getElementById('navLinks');
+burger.addEventListener('click',()=>links.classList.toggle('open'));
+links.addEventListener('click',e=>{if(e.target.tagName==='A')links.classList.remove('open')});
+
+const HAS_IO='IntersectionObserver' in window;
+let io;
+function observeRv(){
+  if(!HAS_IO){document.querySelectorAll('.rv,.rv-l,.rv-r,.rv-s').forEach(el=>el.classList.add('in'));return}
+  io=io||new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('in');setTimeout(()=>{e.target.style.transitionDelay='';},950)}
+    else{e.target.classList.remove('in')}
+  }),{threshold:.12});
+  document.querySelectorAll('.rv,.rv-l,.rv-r,.rv-s').forEach((el,i)=>{if(!el.dataset.ob){el.dataset.ob='1';el.style.transitionDelay=(i%6)*0.08+'s';io.observe(el)}});
+}
+
+/* count-up */
+const cio=HAS_IO?new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;const el=e.target;cio.unobserve(el);
+  const to=+el.dataset.to,t0=performance.now(),D=1600;
+  (function tick(t){const p=Math.min((t-t0)/D,1),ease=1-Math.pow(1-p,3);el.textContent=Math.round(to*ease);if(p<1)requestAnimationFrame(tick)})(t0);
+}),{threshold:.6}):{observe:el=>{el.textContent=el.dataset.to}};
+
+/* active nav link */
+const secIds=['home','about','services','focus','tombstones','news','structure','contact'];
+const sio=HAS_IO?new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){document.querySelectorAll('.nav-links a').forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}
+}),{rootMargin:'-45% 0px -50% 0px'}):{observe(){}};
+
+/* init */
+captureEN();
+renderTombs();renderNews();
+observeRv();
+document.querySelectorAll('.cnt').forEach(el=>cio.observe(el));
+secIds.forEach(id=>{const s=document.getElementById(id);if(s)sio.observe(s)});
+document.querySelectorAll('#langSeg button').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.lang!==LANG)setLang(b.dataset.lang)}));
+</script>
+</body>
+</html>
