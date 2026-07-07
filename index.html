@@ -5,18 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Unify Investment Group — Unifying Vision, Powering Global Innovation</title>
 <meta name="description" content="Unify Investment Group is a premier international principal investment and strategic advisory firm formed by prominent global family offices, with a proprietary capital pool exceeding US$700 million.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@100..900&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#0A0E1A; --bg2:#0D1424; --bg3:#101A2E;
   --txt:#F5F6F8; --sub:#9AA3B2; --mut:#6B7484;
   --gold:#C8A45C; --gold-dim:#a3854d;
   --hair:rgba(255,255,255,.08);
-  --fs-lead:20px; --fs-body:17px; --fs-sm:14.5px; --fs-label:12.5px;
-  --ff:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text",Inter,"Helvetica Neue","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  --fs-lead:20px; --fs-body:17px; --fs-sm:14.5px; --fs-label:12px;
+  --ff:Urbanist,-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text",Inter,"Helvetica Neue","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--txt);font-family:var(--ff);font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{background:var(--bg);color:var(--txt);font-family:var(--ff);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 
 /* ---------- animated background ---------- */
 .bgfx{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
@@ -69,9 +72,9 @@ nav.solid{background:rgba(10,14,26,.72);backdrop-filter:blur(22px) saturate(1.4)
 section{padding:clamp(42px,5vh,70px) clamp(22px,6vw,72px);position:relative}
 .wrap{max-width:1180px;margin:0 auto}
 .eyebrow{font-size:var(--fs-label);letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;font-weight:650}
-h1{font-size:clamp(54px,8vw,112px);font-weight:350;letter-spacing:-.015em;line-height:1.08}
-h2{font-size:clamp(44px,6vw,80px);font-weight:350;letter-spacing:-.012em;line-height:1.12;margin-bottom:24px}
-h3{font-size:clamp(26px,2.8vw,33px);font-weight:650;letter-spacing:-.005em}
+h1{font-size:clamp(52px,8vw,100px);font-weight:350;letter-spacing:-.015em;line-height:1.08}
+h2{font-size:clamp(40px,6vw,64px);font-weight:350;letter-spacing:-.012em;line-height:1.12;margin-bottom:24px}
+h3{font-size:clamp(24px,2.6vw,30px);font-weight:650;letter-spacing:-.005em}
 .lead{font-size:var(--fs-lead);color:var(--sub);max-width:64ch;font-weight:350}
 .hairline{border:none;border-top:1px solid var(--hair)}
 .alt{background:var(--bg2)}
@@ -105,7 +108,7 @@ h3{font-size:clamp(26px,2.8vw,33px);font-weight:650;letter-spacing:-.005em}
              radial-gradient(900px 500px at 85% 110%,rgba(38,64,120,.25),transparent 60%),var(--bg);
   padding-top:120px}
 #home .eyebrow{margin-bottom:30px}
-#home h1{max-width:14ch;margin:0 auto}
+#home h1{max-width:none;margin:0 auto;font-size:clamp(22px,6.6vw,100px)}
 .hero-sub{font-size:clamp(25px,2.9vw,35px);color:var(--gold);font-weight:550;letter-spacing:.06em;margin-top:28px;position:relative}
 .hero-glow{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(64vmin,640px);height:150%;background:radial-gradient(ellipse at 50% 50%,rgba(212,175,102,.45),rgba(212,175,102,.14) 45%,transparent 72%);filter:blur(28px);animation:glowGrow 4.2s ease-in-out infinite alternate;pointer-events:none;z-index:0}
 .hero-sub span{position:relative;z-index:1}
@@ -256,7 +259,7 @@ details.letter .full .sig{color:var(--txt);font-weight:500;margin-top:24px}
 
 /* ---------- key members ---------- */
 .team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:clamp(20px,2.6vw,36px);margin-top:48px}
-.member{display:flex;align-items:center;gap:16px}
+.member{display:flex;align-items:flex-start;gap:16px}
 .member .ph{aspect-ratio:3/4;overflow:hidden;background:var(--bg3);width:112px;flex:0 0 112px;margin:0;border-radius:8px}
 .member .ph img{width:100%;height:100%;object-fit:cover;filter:saturate(.9) contrast(1.02);transition:transform .5s cubic-bezier(.22,1,.36,1)}
 .member:hover .ph img{transform:scale(1.045)}
@@ -943,11 +946,13 @@ const sio=HAS_IO?new IntersectionObserver(es=>es.forEach(e=>{
 
 /* init */
 captureEN();
+var _sl=null;try{_sl=localStorage.getItem('uig_lang');}catch(e){}
+setLang(_sl||((navigator.language||navigator.userLanguage||'en').toLowerCase().slice(0,2)==='zh'?'zh':'en'));
 renderTombs();renderNews();
 observeRv();
 document.querySelectorAll('.cnt').forEach(el=>cio.observe(el));
 secIds.forEach(id=>{const s=document.getElementById(id);if(s)sio.observe(s)});
-document.querySelectorAll('#langSeg button').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.lang!==LANG)setLang(b.dataset.lang)}));
+document.querySelectorAll('#langSeg button').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.lang!==LANG){setLang(b.dataset.lang);try{localStorage.setItem('uig_lang',b.dataset.lang)}catch(e){}}}));
 </script>
 </body>
 </html>
