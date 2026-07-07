@@ -66,7 +66,7 @@ nav.solid{background:rgba(10,14,26,.72);backdrop-filter:blur(22px) saturate(1.4)
 }
 
 /* ---------- shared ---------- */
-section{padding:clamp(56px,7vh,96px) clamp(22px,6vw,72px);position:relative}
+section{padding:clamp(42px,5vh,70px) clamp(22px,6vw,72px);position:relative}
 .wrap{max-width:1180px;margin:0 auto}
 .eyebrow{font-size:var(--fs-label);letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;font-weight:650}
 h1{font-size:clamp(54px,8vw,112px);font-weight:350;letter-spacing:-.015em;line-height:1.08}
@@ -300,7 +300,14 @@ footer .copy{color:var(--mut);font-size:var(--fs-sm)}
   h2{font-size:clamp(30px,9vw,44px)}
   .lead{font-size:var(--fs-lead)}
   .hero-copy{font-size:var(--fs-lead)}
-  section{padding:48px 20px}
+  section{padding:28px 18px}
+  .eyebrow{margin-bottom:12px}
+  h2{margin-bottom:14px}
+  .grid4,.svc-grid,.focus-grid,.tomb-grid,.news-grid,.struct,.team-grid,.contact-grid,.about-grid{margin-top:20px}
+  .ceo,.ticket{margin-top:26px}
+  .contact-cta{margin-top:30px}
+  .values{margin-top:20px}
+  .hairline{margin-top:26px!important}
   .cell{padding:32px 24px}
   .focus-grid{gap:12px}
   /* mobile: icon + heading share one row to use the space beside the icon */
@@ -323,7 +330,7 @@ footer .copy{color:var(--mut);font-size:var(--fs-sm)}
   .entity .zh-name,.entity .pos,.entity ul{flex-basis:100%}
   .entity .zh-name{margin-top:12px}
   .stat .num{font-size:40px}
-  .hero-stats{gap:22px;margin-top:40px}
+  .hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:30px 14px;margin-top:40px;max-width:420px;margin-left:auto;margin-right:auto}
   .tomb-grid{grid-template-columns:repeat(2,1fr);gap:10px}
   .news-grid{grid-template-columns:1fr}
   .ceo{grid-template-columns:1fr}
@@ -469,7 +476,7 @@ footer .copy{color:var(--mut);font-size:var(--fs-sm)}
       </div>
     </div>
 
-    <hr class="hairline" style="margin-top:52px">
+    <hr class="hairline" style="margin-top:40px">
     <div class="ceo">
       <div class="rv-l">
         <div class="ceo-photo"><img src="assets/ceo.jpg" alt="Eric Huang, CEO of Unify Investment Group"></div>
