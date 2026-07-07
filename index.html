@@ -136,8 +136,8 @@ h3{font-size:clamp(26px,2.8vw,33px);font-weight:650;letter-spacing:-.005em}
 
 /* ---------- about ---------- */
 .about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(40px,6vw,90px);align-items:start;margin-top:24px}
-@media(max-width:900px){.about-grid{grid-template-columns:1fr}}
-.values{display:grid;gap:0;margin-top:46px;border-top:1px solid var(--hair)}
+@media(max-width:900px){.about-grid{grid-template-columns:1fr}.values{margin-top:32px}}
+.values{display:grid;gap:0;margin-top:0;border-top:1px solid var(--hair)}
 .value{display:grid;grid-template-columns:216px 1fr;gap:24px;padding:26px 0;border-bottom:1px solid var(--hair)}
 .vic{display:inline-block;width:32px;height:32px;margin-right:12px;vertical-align:-8px;color:var(--gold)}
 .vic svg{width:100%;height:100%;overflow:visible}
@@ -304,7 +304,7 @@ footer .copy{color:var(--mut);font-size:var(--fs-sm)}
   .cell{padding:32px 24px}
   .focus-grid{gap:12px}
   /* mobile: icon + heading share one row to use the space beside the icon */
-  .cell,.svc,.focus,.entity{display:flex;flex-wrap:wrap;align-items:center;align-content:flex-start;column-gap:14px}
+  .cell,.svc,.focus,.entity{display:flex;flex-direction:row;flex-wrap:wrap;align-items:center;align-content:flex-start;column-gap:14px}
   .cell .icon-wrap,.svc .icon-wrap,.focus .icon-wrap,.entity .icon-wrap{margin-bottom:0}
   .cell h3,.svc h3,.focus h3,.entity h3{flex:1 1 0;min-width:0;min-height:0;margin:0}
   /* core strengths: number on top line, description full width below */
@@ -455,9 +455,9 @@ footer .copy{color:var(--mut);font-size:var(--fs-sm)}
 <section id="about">
   <div class="wrap">
     <div class="eyebrow rv" data-i="ab_eyebrow">About Us</div>
-    <h2 class="rv-s" data-i="ab_title">Independence is<br>our greatest asset.</h2>
     <div class="about-grid">
       <div class="rv-l" style="opacity:1;transform:none">
+        <h2 class="rv-s" data-i="ab_title">Independence is<br>our greatest asset.</h2>
         <p class="lead rv" data-i="ab_p1">Unify Investment Group is a global principal investment and strategic advisory conglomerate, jointly established by several internationally renowned family offices, managing a proprietary capital pool exceeding US$700 million.</p>
         <p class="lead rv" style="margin-top:20px" data-i="ab_p2">Unlike traditional asset managers, we allocate strictly our own capital and manage no outside public funds. This independence keeps us immune to short-term market pressures, upholds true long-termism, and builds profound strategic partnerships with our portfolio companies.</p>
         <p class="lead rv" style="margin-top:20px" data-i="ab_p3">Our vision is built on rigorous data science: one of the world's top four patent databases and advanced AI technologies power comprehensive technical reviews, market intelligence and competitor analysis — seeing through complexity to identify ideal opportunities well ahead of the market.</p>
