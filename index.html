@@ -256,11 +256,11 @@ details.letter .full .sig{color:var(--txt);font-weight:500;margin-top:24px}
 
 /* ---------- key members ---------- */
 .team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:clamp(20px,2.6vw,36px);margin-top:48px}
-.member{display:flex;flex-direction:column}
-.member .ph{aspect-ratio:3/4;overflow:hidden;background:var(--bg3);width:42%;margin:26px auto 4px;border-radius:8px}
+.member{display:flex;align-items:center;gap:16px}
+.member .ph{aspect-ratio:3/4;overflow:hidden;background:var(--bg3);width:112px;flex:0 0 112px;margin:0;border-radius:8px}
 .member .ph img{width:100%;height:100%;object-fit:cover;filter:saturate(.9) contrast(1.02);transition:transform .5s cubic-bezier(.22,1,.36,1)}
 .member:hover .ph img{transform:scale(1.045)}
-.member .tx{padding:16px 24px 28px;display:flex;flex-direction:column;flex:1;text-align:center}
+.member .tx{padding:0;display:flex;flex-direction:column;flex:1;min-width:0;text-align:left}
 .member h3{font-size:26px;font-weight:700;margin-bottom:8px}
 .member .role{color:var(--gold);font-size:var(--fs-body);font-weight:600;line-height:1.5}
 .member .org{color:var(--sub);font-size:var(--fs-body);margin-top:8px;font-weight:350;line-height:1.5}
@@ -302,10 +302,26 @@ footer .copy{color:var(--mut);font-size:var(--fs-sm)}
   .hero-copy{font-size:var(--fs-lead)}
   section{padding:48px 20px}
   .cell{padding:32px 24px}
-  .focus{padding:24px 22px;min-height:0}
-  .focus .icon-wrap{margin-bottom:12px}
-  .focus h3{min-height:0;font-size:21px;margin-bottom:6px}
   .focus-grid{gap:12px}
+  /* mobile: icon + heading share one row to use the space beside the icon */
+  .cell,.svc,.focus,.entity{display:flex;flex-wrap:wrap;align-items:center;align-content:flex-start;column-gap:14px}
+  .cell .icon-wrap,.svc .icon-wrap,.focus .icon-wrap,.entity .icon-wrap{margin-bottom:0}
+  .cell h3,.svc h3,.focus h3,.entity h3{flex:1 1 0;min-width:0;min-height:0;margin:0}
+  /* core strengths: number on top line, description full width below */
+  .cell{padding:28px 24px}
+  .cell .no{flex-basis:100%;margin-bottom:8px}
+  .cell p{flex-basis:100%;margin-top:12px}
+  /* services: tag eyebrow on top line, list full width below */
+  .svc .tag{order:-1;flex-basis:100%;margin-bottom:8px}
+  .svc ul{flex-basis:100%;margin-top:14px}
+  /* investment focus: description full width below */
+  .focus{padding:22px 22px;min-height:0}
+  .focus h3{font-size:21px}
+  .focus p{flex-basis:100%;margin-top:10px}
+  /* group structure: location eyebrow on top, details full width below */
+  .entity .where{order:-1;flex-basis:100%;margin-bottom:8px}
+  .entity .zh-name,.entity .pos,.entity ul{flex-basis:100%}
+  .entity .zh-name{margin-top:12px}
   .stat .num{font-size:40px}
   .hero-stats{gap:22px;margin-top:40px}
   .tomb-grid{grid-template-columns:repeat(2,1fr);gap:10px}
@@ -654,8 +670,7 @@ footer .copy{color:var(--mut);font-size:var(--fs-sm)}
 <!-- KEY MEMBERS -->
 <section id="team">
   <div class="wrap">
-    <div class="eyebrow rv" data-i="tm_eyebrow">Key Members</div>
-    <h2 class="rv-s" data-i="tm_title">The people behind<br>the platform.</h2>
+    <div class="eyebrow rv" data-i="tm_eyebrow">Our Team</div>
     <div class="team-grid">
       <div class="member rv">
         <div class="ph"><img src="assets/Warren Chang.jpg" alt="Warren Chang" loading="lazy"></div>
@@ -826,7 +841,7 @@ const ZH={
  e1_a:"全球自有資金投資配置",e1_b:"國際資本市場策略諮詢——SPAC／直接上市／PIPE／ELOC",e1_c:"境外公司架構規劃",
  e2_where:"台灣 · 亞太據點",e2_pos:"Unify Investment Group深耕亞太與台灣市場的先鋒。",
  e2_a:"台灣本地企業財務策略顧問",e2_b:"跨境併購諮詢",e2_c:"深科技與生醫生態系早期投資媒合與孵化",
- tm_eyebrow:"核心成員",tm_title:"平台背後的<br>核心團隊。",
+ tm_eyebrow:"我們的團隊",tm_title:"平台背後的<br>核心團隊。",
  tm1_role:"聯合主席／董事總經理",
  tm2_role:"上海合夥人",
  tm3_role:"駐點創業家／歐盟聯絡窗口",
